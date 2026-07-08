@@ -6,14 +6,14 @@ import Link from 'next/link';
 import { Menu, X, Leaf, ExternalLink } from 'lucide-react';
 
 const navigation = [
-  { name: 'About', href: '/#about' },
-  { name: 'Features', href: '/#features' },
-  { name: 'Team', href: '/#team' },
-  { name: 'Demo', href: '/demo' },
+  { name: 'How it works', href: '/#about' },
+  { name: 'Capabilities', href: '/#features' },
+  { name: 'Pricing', href: '/#pricing' },
+  { name: 'Request Demo', href: '/demo' },
 ];
 
 // Demo app URL
-const APP_URL = 'https://demo.climatrix.io';
+const APP_URL = 'https://climetrix.io';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,20 +21,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
       <nav className="flex items-center justify-between p-4 lg:px-8 max-w-7xl mx-auto" aria-label="Global">
-        {/* BDO Logo + CLIMATRIX Logo */}
         <div className="flex lg:flex-1 items-center gap-4">
-          {/* BDO Logo */}
-          <a href="https://www.bdo.co.il" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-            <img
-              src="/images/BDO_Deutsche_Warentreuhand_Logo.svg"
-              alt="BDO"
-              className="h-8 w-auto"
-            />
-          </a>
-
-          {/* Separator */}
-          <div className="h-8 w-px bg-gray-300 hidden sm:block" />
-
           {/* CLIMATRIX Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
@@ -104,12 +91,6 @@ export default function Navbar() {
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <img
-                  src="/images/BDO_Deutsche_Warentreuhand_Logo.svg"
-                  alt="BDO"
-                  className="h-6 w-auto"
-                />
-                <div className="h-6 w-px bg-gray-300" />
                 <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
                   <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
                     <Leaf className="w-5 h-5 text-white" />

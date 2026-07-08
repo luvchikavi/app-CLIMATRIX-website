@@ -37,14 +37,6 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2">
             <div className="flex items-center gap-4 mb-4">
-              <a href="https://www.bdo.co.il" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/images/BDO_Deutsche_Warentreuhand_Logo.svg"
-                  alt="BDO"
-                  className="h-7 w-auto brightness-0 invert"
-                />
-              </a>
-              <div className="h-6 w-px bg-gray-600" />
               <Link href="/" className="flex items-center gap-2">
                 <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center">
                   <Leaf className="w-5 h-5 text-white" />
@@ -57,9 +49,6 @@ export default function Footer() {
             <p className="text-sm text-gray-400 mb-6 max-w-xs">
               The complete carbon accounting platform for modern businesses.
               Track, report, and reduce your environmental footprint.
-            </p>
-            <p className="text-xs text-gray-500 mb-4">
-              A BDO Israel Solution
             </p>
             <div className="flex gap-4">
               <a
