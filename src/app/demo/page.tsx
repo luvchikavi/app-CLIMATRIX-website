@@ -46,12 +46,23 @@ export default function DemoPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      // Same-origin proxy → platform CRM (source: website_demo)
+      const res = await fetch('/api/demo-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error('capture failed');
+      setSubmitted(true);
+    } catch {
+      // Never dead-end a prospect: surface the direct channel.
+      alert(
+        'Something went wrong sending your request — please email us directly at luvchik@climatrix.com.'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
