@@ -37,28 +37,28 @@ const TRY_URL = 'https://climetrix.io/try';
 
 const screenshots = [
   {
+    id: 'hub',
+    title: 'The Data Hub',
+    description: 'One living map of your inventory — what\u2019s relevant, what\u2019s arrived, what\u2019s still missing, and who to chase',
+    image: '/images/screenshots/hub.png',
+  },
+  {
     id: 'dashboard',
     title: 'Dashboard Overview',
-    description: 'Get a complete view of your carbon footprint with real-time metrics and trend analysis',
+    description: 'Your footprint per year, per site, or all together — with drill-downs behind every number',
     image: '/images/screenshots/dashboard.png',
   },
   {
-    id: 'emissions',
-    title: 'Emissions Tracking',
-    description: 'Track Scope 1, 2, and 3 emissions with detailed breakdowns by category and source',
-    image: '/images/screenshots/emissions.png',
+    id: 'activities',
+    title: 'Activity Ledger',
+    description: 'Every committed emission line, with its factor, source and data-quality grade',
+    image: '/images/screenshots/activities.png',
   },
   {
-    id: 'cbam',
-    title: 'CBAM Compliance',
-    description: 'EU Carbon Border Adjustment Mechanism reporting with automatic certificate calculations',
-    image: '/images/screenshots/cbam.png',
-  },
-  {
-    id: 'scenarios',
-    title: 'Scenario Planning',
-    description: 'Model reduction initiatives and track your path to net-zero with confidence',
-    image: '/images/screenshots/scenarios.png',
+    id: 'reports',
+    title: 'Reports & Audit',
+    description: 'Scope summaries, GHG inventory, data quality and audit package — export-ready',
+    image: '/images/screenshots/reports.png',
   },
 ];
 
@@ -333,14 +333,7 @@ export default function Home() {
                     <div className="text-sm text-gray-500">Technology</div>
                   </div>
                 </div>
-                <div className="text-3xl text-gray-300 font-light">+</div>
-                <div className="flex items-center gap-3">
-                  <img src="/images/BDO_Deutsche_Warentreuhand_Logo.svg" alt="BDO" className="h-12 w-auto" />
-                  <div>
-                    <div className="font-bold text-gray-900">BDO</div>
-                    <div className="text-sm text-gray-500">Advisory</div>
-                  </div>
-                </div>
+
               </div>
             </motion.div>
 
