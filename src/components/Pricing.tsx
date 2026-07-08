@@ -11,7 +11,8 @@ import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
 
 const APP_URL = 'https://climetrix.io';
-const LEADS_ENDPOINT = 'https://climetrix.io/api/leads';
+// Same-origin proxy (src/app/api/trial-lead) — avoids cross-origin CORS entirely.
+const LEADS_ENDPOINT = '/api/trial-lead';
 
 const tiers = [
   {
