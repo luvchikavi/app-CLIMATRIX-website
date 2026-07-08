@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { Menu, X, Leaf, ExternalLink } from 'lucide-react';
 
 const navigation = [
-  { name: 'About', href: '/#about' },
-  { name: 'Features', href: '/#features' },
-  { name: 'Team', href: '/#team' },
-  { name: 'Demo', href: '/demo' },
+  { name: 'How it works', href: '/#about' },
+  { name: 'Capabilities', href: '/#features' },
+  { name: 'Pricing', href: '/#pricing' },
+  { name: 'Request Demo', href: '/demo' },
 ];
 
 // Demo app URL

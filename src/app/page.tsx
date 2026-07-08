@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Pricing from '@/components/Pricing';
 import {
   BarChart3,
   FileCheck,
@@ -61,42 +62,53 @@ const screenshots = [
   },
 ];
 
-const features = [
+const features: {
+  name: string;
+  description: string;
+  icon: typeof BarChart3;
+  color: string;
+  badge?: string;
+}[] = [
   {
-    name: 'GHG Emissions Tracking',
-    description: 'Complete Scope 1, 2, and 3 emissions tracking with AI-powered data extraction.',
-    icon: BarChart3,
+    name: 'The Data Hub',
+    description:
+      'One living map of your inventory: declare which GHG categories are relevant, see what data arrived, what quality it has, and exactly what is still missing — with a chase list of who to ask.',
+    icon: Target,
+    color: 'from-emerald-500 to-teal-500',
+  },
+  {
+    name: 'AI Smart Import',
+    description:
+      'Drop any spreadsheet — fuel cards, utility bills, ERP spend dumps. The parser knows your organization before it reads a row and maps every line to the right scope and category.',
+    icon: Sparkles,
     color: 'from-blue-500 to-cyan-500',
   },
   {
-    name: 'CBAM Compliance',
-    description: 'Full EU Carbon Border Adjustment Mechanism support with quarterly reporting.',
+    name: 'Honest data quality',
+    description:
+      'Every line lands on a ladder: measured / calculated / estimated / gap. Estimates never masquerade as measured data — so a verifier can trust the number.',
+    icon: BarChart3,
+    color: 'from-orange-500 to-amber-500',
+  },
+  {
+    name: 'Reports & audit trail',
+    description:
+      'Full Scope 1, 2 and 3 reporting with the factor, source and formula behind every figure — plus an audit package and verification workflow.',
     icon: FileCheck,
     color: 'from-purple-500 to-pink-500',
   },
   {
-    name: 'LCA & EPD Management',
-    description: 'Life Cycle Assessment and Environmental Product Declaration management.',
-    icon: Leaf,
+    name: 'Decarbonization planning',
+    description: 'Model reduction scenarios and plan your path to net-zero on top of real data.',
+    icon: LineChart,
     color: 'from-green-500 to-emerald-500',
   },
   {
-    name: 'Scenario Planning',
-    description: 'Model reduction scenarios and plan your path to net-zero.',
-    icon: LineChart,
-    color: 'from-orange-500 to-amber-500',
-  },
-  {
-    name: 'AI-Powered Insights',
-    description: 'Intelligent data processing and recommendations powered by AI.',
-    icon: Sparkles,
-    color: 'from-pink-500 to-rose-500',
-  },
-  {
-    name: 'Enterprise Security',
-    description: 'SOC 2 ready with comprehensive audit logging and GDPR compliance.',
+    name: 'CBAM Compliance',
+    description: 'EU Carbon Border Adjustment Mechanism support with quarterly reporting.',
     icon: Shield,
     color: 'from-cyan-500 to-teal-500',
+    badge: 'Under development',
   },
 ];
 
@@ -107,61 +119,29 @@ const stats = [
   { value: '50+', label: 'Emission Factors', icon: Leaf },
 ];
 
-const teamMembers = [
-  {
-    name: 'Avi Luvchik',
-    role: 'CEO',
-    company: 'CLIMATRIX',
-    image: '/images/team/avi.jpeg',
-    bio: 'Dr. Luvchik serves as an advisor and Board Member in various companies in the field of climate tech and sustainability.',
-    linkedin: 'https://www.linkedin.com/in/avi-luvchik-phd-987a981b',
-  },
-  {
-    name: 'Lihie Iuclea',
-    role: 'CSO',
-    company: 'BDO',
-    image: '/images/team/lihie.jpeg',
-    bio: 'International consultant to UNEP on climate policy. Head of ESG at BDO, guiding organizations in ESG strategy.',
-    linkedin: 'https://www.linkedin.com/in/lihieiuclea/',
-  },
-  {
-    name: 'Chezi Shpaisman',
-    role: 'CTO',
-    company: 'CLIMATRIX',
-    image: '/images/team/chezi.jpeg',
-    bio: 'Founder & Principal at Sakkoya Data Management Solutions. Expert in data architecture and enterprise systems.',
-    linkedin: 'https://www.linkedin.com/in/chezi-shpaisman/',
-  },
-  {
-    name: 'Leehee Goldenberg',
-    role: 'CRO',
-    company: 'CLIMATRIX',
-    image: '/images/team/leehee.jpeg',
-    bio: 'Lawyer and policy professional specializing in energy, infrastructure, and climate governance.',
-    linkedin: 'https://www.linkedin.com/in/leehee-goldenberg-62255523/',
-  },
-];
-
 const aboutPoints = [
   {
     icon: Target,
-    title: 'Our Mission',
-    description: 'Democratize carbon accounting for organizations of all sizes.',
+    title: '1 · Declare your reality',
+    description:
+      'Country, sites, currency, and which GHG categories apply to you — a two-minute setup that becomes your reporting boundary.',
   },
   {
     icon: TrendingDown,
-    title: 'Our Impact',
-    description: 'Helping track and reduce 500,000+ tonnes CO2e annually.',
+    title: '2 · Drop your files, any format',
+    description:
+      'Utility bills, fuel cards, travel exports, ERP dumps. The AI reads them through your profile and maps every line — in seconds, not weeks.',
   },
   {
     icon: Award,
-    title: 'Our Standards',
-    description: 'Built on GHG Protocol, ISO 14064, CSRD, and CBAM.',
+    title: '3 · Review, close gaps, report',
+    description:
+      'The Data Hub shows what arrived, its quality, and what is missing. Answer the few real questions, commit, and export a defensible inventory.',
   },
   {
     icon: Users,
-    title: 'Our Partnership',
-    description: 'Backed by BDO, a global leader in professional services.',
+    title: 'Built on the standards',
+    description: 'GHG Protocol, ISO 14064, CSRD — with BDO expertise behind the methodology.',
   },
 ];
 
@@ -235,8 +215,8 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-8"
             >
-              Carbon Accounting
-              <span className="block gradient-text text-glow mt-2">Made Simple</span>
+              Drop your messy data.
+              <span className="block gradient-text text-glow mt-2">Get an audit-ready inventory.</span>
             </motion.h1>
 
             <motion.p
@@ -256,12 +236,10 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <a
-                href={TRY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#pricing"
                 className="group inline-flex items-center justify-center gap-2 rounded-2xl animated-gradient px-8 py-4 text-lg font-semibold text-white shadow-2xl hover:scale-105 transition-all duration-300 shine-effect"
               >
-                Try it now — drop a file
+                Try it free for 14 days
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -333,17 +311,16 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                About <span className="gradient-text">CLIMATRIX</span>
+                How <span className="gradient-text">CLIMATRIX</span> works
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                CLIMATRIX is a comprehensive carbon accounting platform designed to help
-                organizations measure, track, and reduce their environmental impact. Built
-                in partnership with BDO, we combine cutting-edge technology with deep
-                sustainability expertise.
+                The hard part of carbon accounting isn't the math — it's gathering messy
+                data from finance, fleet, facilities and suppliers, and making it
+                defensible. CLIMATRIX is built around a Data Hub that does exactly that.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our platform supports the full lifecycle of carbon management from data
-                collection to reporting and reduction planning.
+                Three steps: declare your reality, drop your files, review and report —
+                with every number carrying its factor, formula and quality grade.
               </p>
 
               <div className="glass-card p-6 flex items-center gap-6">
@@ -484,7 +461,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              Everything for <span className="gradient-text">Carbon Management</span>
+              What's inside <span className="gradient-text">the platform</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               From emissions tracking to compliance reporting, all tools in one platform.
@@ -505,7 +482,14 @@ export default function Home() {
                 <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {feature.name}
+                  {feature.badge && (
+                    <span className="ml-2 align-middle rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
+                      {feature.badge}
+                    </span>
+                  )}
+                </h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
@@ -514,74 +498,6 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-24 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              Meet Our <span className="gradient-text">Team</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              Sustainability innovators and world-class advisory expertise.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="glass-card p-6 text-center hover:glow transition-all duration-300"
-              >
-                <div className="relative w-28 h-28 mx-auto mb-5">
-                  <div className="absolute inset-0 rounded-full animated-gradient opacity-50 blur-md" />
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="relative w-28 h-28 rounded-full object-cover border-4 border-white shadow-xl"
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
-                <p className="text-primary-600 font-semibold">{member.role}</p>
-                <span className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold ${
-                  member.company === 'CLIMATRIX'
-                    ? 'bg-gradient-to-r from-primary-100 to-secondary-100 text-primary-700'
-                    : 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700'
-                }`}>
-                  {member.company}
-                </span>
-                <p className="text-sm text-gray-600 mt-4 leading-relaxed">{member.bio}</p>
-                <div className="mt-5 flex justify-center gap-3">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl glass hover:scale-110 transition-all"
-                  >
-                    <Linkedin className="w-5 h-5 text-primary-600" />
-                  </a>
-                  <a
-                    href={`mailto:${member.name.toLowerCase().replace(' ', '.')}@climatrix.com`}
-                    className="p-2.5 rounded-xl glass hover:scale-110 transition-all"
-                  >
-                    <Mail className="w-5 h-5 text-primary-600" />
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Security Section */}
       <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -641,6 +557,8 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
+      <Pricing />
+
       <section className="py-24 relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -662,12 +580,10 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href={APP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#pricing"
                   className="group inline-flex items-center justify-center gap-2 rounded-2xl animated-gradient px-10 py-5 text-lg font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300"
                 >
-                  Start Free Trial
+                  Try it free for 14 days
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <Link
