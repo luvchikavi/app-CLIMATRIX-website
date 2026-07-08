@@ -29,8 +29,10 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-// Demo app URL (for showcasing to clients)
-const APP_URL = 'https://demo.climatrix.io';
+// The live platform (real domain is climEtrix.io — climatrix.io is unrelated)
+const APP_URL = 'https://climetrix.io';
+// Public no-login demo — drop a file, see calculated results
+const TRY_URL = 'https://climetrix.io/try';
 
 const screenshots = [
   {
@@ -254,13 +256,21 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <a
-                href={APP_URL}
+                href={TRY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-2xl animated-gradient px-8 py-4 text-lg font-semibold text-white shadow-2xl hover:scale-105 transition-all duration-300 shine-effect"
               >
-                Open App
+                Try it now — drop a file
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href={APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl glass-card px-8 py-4 text-lg font-semibold text-gray-900 hover:scale-105 transition-all duration-300"
+              >
+                Open App
               </a>
               <Link
                 href="/demo"

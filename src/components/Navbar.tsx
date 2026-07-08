@@ -13,7 +13,7 @@ const navigation = [
 ];
 
 // Demo app URL
-const APP_URL = 'https://demo.climatrix.io';
+const APP_URL = 'https://climetrix.io';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
