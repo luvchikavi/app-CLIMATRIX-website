@@ -42,7 +42,7 @@ export default function Footer() {
                   <Leaf className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-lg font-bold text-white">
-                  CLIME<span className="text-primary-400">TRIX</span>
+                  CLIMATRIX
                 </span>
               </Link>
             </div>
