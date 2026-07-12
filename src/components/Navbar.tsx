@@ -23,13 +23,14 @@ export default function Navbar() {
       <nav className="flex items-center justify-between p-4 lg:px-8 max-w-7xl mx-auto" aria-label="Global">
         <div className="flex lg:flex-1 items-center gap-4">
           {/* CLIMATRIX Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/25">
               <Leaf className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900 hidden sm:inline">
-              CLIME<span className="text-primary-600">TRIX</span>
-            </span>
+            <div className="hidden sm:block">
+              <span className="text-xl font-bold text-gray-900 leading-none">CLIMATRIX</span>
+              <p className="text-[9px] text-gray-500 uppercase tracking-[0.2em]">Carbon Intelligence</p>
+            </div>
           </Link>
         </div>
 
@@ -96,7 +97,7 @@ export default function Navbar() {
                     <Leaf className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-lg font-bold text-gray-900">
-                    CLIME<span className="text-primary-600">TRIX</span>
+                    CLIMATRIX
                   </span>
                 </Link>
               </div>
