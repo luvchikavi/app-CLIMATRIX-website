@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
 
-const APP_URL = 'https://climetrix.io';
+const APP_URL = 'https://app.climatrix.co';
 // Same-origin proxy (src/app/api/trial-lead) — avoids cross-origin CORS entirely.
 const LEADS_ENDPOINT = '/api/trial-lead';
 

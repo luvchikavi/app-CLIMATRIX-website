@@ -30,10 +30,10 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-// The live platform (real domain is climEtrix.io — climatrix.io is unrelated)
-const APP_URL = 'https://climetrix.io';
+// The live platform app (climatrix.co is the one brand domain)
+const APP_URL = 'https://app.climatrix.co';
 // Public no-login demo — drop a file, see calculated results
-const TRY_URL = 'https://climetrix.io/try';
+const TRY_URL = 'https://app.climatrix.co/try';
 
 const screenshots = [
   {

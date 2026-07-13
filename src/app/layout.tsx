@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CLIMATRIX - Carbon Accounting Made Simple',
     description: 'The complete carbon accounting platform for modern businesses.',
-    url: 'https://climatrix.io',
+    url: 'https://climatrix.co',
     siteName: 'CLIMATRIX',
     locale: 'en_US',
     type: 'website',

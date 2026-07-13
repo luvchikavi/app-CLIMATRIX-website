@@ -50,3 +50,5 @@ temp/
 # Editor
 *.sublime-workspace
 *.sublime-project
+.vercel
+.env*.local
