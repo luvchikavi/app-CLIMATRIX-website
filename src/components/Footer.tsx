@@ -68,7 +68,7 @@ export default function Footer() {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="mailto:luvchik@climatrix.com"
+                href="mailto:luvchik.avi@gmail.com"
                 className="text-gray-400 hover:text-primary-400 transition-colors"
               >
                 <Mail className="w-5 h-5" />
@@ -150,7 +150,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-500">
-              Questions? <a href="mailto:luvchik@climatrix.com" className="text-primary-400 hover:underline">luvchik@climatrix.com</a>
+              Questions? <a href="mailto:luvchik.avi@gmail.com" className="text-primary-400 hover:underline">luvchik.avi@gmail.com</a>
             </p>
           </div>
         </div>

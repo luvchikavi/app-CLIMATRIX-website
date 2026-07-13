@@ -141,7 +141,7 @@ const aboutPoints = [
   {
     icon: Users,
     title: 'Built on the standards',
-    description: 'GHG Protocol, ISO 14064, CSRD — with BDO expertise behind the methodology.',
+    description: 'GHG Protocol, ISO 14064, CSRD — audit-ready methodology built in.',
   },
 ];
 

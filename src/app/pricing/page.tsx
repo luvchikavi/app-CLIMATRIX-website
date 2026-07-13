@@ -23,7 +23,7 @@ const plans = [
       { name: 'API access', included: false },
     ],
     cta: 'Start Free Trial',
-    ctaLink: 'https://app.climatrix.com/register?plan=starter',
+    ctaLink: 'https://app.climatrix.co/register?plan=starter',
   },
   {
     name: 'Professional',
@@ -42,7 +42,7 @@ const plans = [
       { name: 'API access', included: false },
     ],
     cta: 'Start Free Trial',
-    ctaLink: 'https://app.climatrix.com/register?plan=professional',
+    ctaLink: 'https://app.climatrix.co/register?plan=professional',
   },
   {
     name: 'Enterprise',
@@ -378,7 +378,7 @@ export default function PricingPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://app.climatrix.com/register"
+              href="https://app.climatrix.co/register"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-primary-600 shadow-lg hover:bg-gray-50 transition-all"
             >
               Start Free Trial

@@ -58,7 +58,7 @@ export default function DemoPage() {
     } catch {
       // Never dead-end a prospect: surface the direct channel.
       alert(
-        'Something went wrong sending your request — please email us directly at luvchik@climatrix.com.'
+        'Something went wrong sending your request — please email us directly at luvchik.avi@gmail.com.'
       );
     } finally {
       setLoading(false);
@@ -136,11 +136,11 @@ export default function DemoPage() {
                   Or reach out directly:
                 </h3>
                 <a
-                  href="mailto:luvchik@climatrix.com"
+                  href="mailto:luvchik.avi@gmail.com"
                   className="flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
-                  luvchik@climatrix.com
+                  luvchik.avi@gmail.com
                 </a>
               </div>
             </motion.div>
@@ -165,7 +165,7 @@ export default function DemoPage() {
                     to schedule your personalized demo.
                   </p>
                   <a
-                    href="https://app.climatrix.com/register"
+                    href="https://app.climatrix.co/register"
                     className="inline-flex items-center gap-2 gradient-bg text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-all"
                   >
                     Start Free Trial Now
