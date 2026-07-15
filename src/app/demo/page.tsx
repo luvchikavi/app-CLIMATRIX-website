@@ -58,7 +58,7 @@ export default function DemoPage() {
     } catch {
       // Never dead-end a prospect: surface the direct channel.
       alert(
-        'Something went wrong sending your request — please email us directly at luvchik.avi@gmail.com.'
+        'Something went wrong sending your request — please email us directly at avi@climatrix.co.'
       );
     } finally {
       setLoading(false);
@@ -136,11 +136,11 @@ export default function DemoPage() {
                   Or reach out directly:
                 </h3>
                 <a
-                  href="mailto:luvchik.avi@gmail.com"
+                  href="mailto:avi@climatrix.co"
                   className="flex items-center gap-3 text-gray-600 hover:text-primary-600 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
-                  luvchik.avi@gmail.com
+                  avi@climatrix.co
                 </a>
               </div>
             </motion.div>
@@ -349,12 +349,12 @@ export default function DemoPage() {
               {
                 icon: Building,
                 title: 'Enterprise Ready',
-                description: 'Built for scale with SOC 2 ready security, GDPR compliance, and 99.9% uptime.',
+                description: 'Encrypted at rest and in transit, strict multi-tenant isolation, and GDPR compliance — built in from day one.',
               },
               {
                 icon: CheckCircle2,
                 title: 'Proven Results',
-                description: 'Companies using CLIMATRIX have reduced their reporting time by up to 80%.',
+                description: 'From messy spreadsheets to an audit-ready inventory in days, not months — with every number traceable.',
               },
             ].map((item, index) => (
               <motion.div

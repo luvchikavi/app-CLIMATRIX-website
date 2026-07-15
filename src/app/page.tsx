@@ -34,6 +34,8 @@ import {
 const APP_URL = 'https://app.climatrix.co';
 // Public no-login demo — drop a file, see calculated results
 const TRY_URL = 'https://app.climatrix.co/try';
+// Free public CBAM exemption checker — no signup
+const CBAM_CHECK_URL = 'https://app.climatrix.co/cbam-check';
 
 const screenshots = [
   {
@@ -74,7 +76,7 @@ const features: {
     description:
       'One living map of your inventory: declare which GHG categories are relevant, see what data arrived, what quality it has, and exactly what is still missing — with a chase list of who to ask.',
     icon: Target,
-    color: 'from-emerald-500 to-teal-500',
+    color: 'from-primary-500 to-secondary-400',
   },
   {
     name: 'AI Smart Import',
@@ -88,7 +90,7 @@ const features: {
     description:
       'Every line lands on a ladder: measured / calculated / estimated / gap. Estimates never masquerade as measured data — so a verifier can trust the number.',
     icon: BarChart3,
-    color: 'from-orange-500 to-amber-500',
+    color: 'from-secondary-500 to-accent-400',
   },
   {
     name: 'Reports & audit trail',
@@ -101,22 +103,24 @@ const features: {
     name: 'Decarbonization planning',
     description: 'Model reduction scenarios and plan your path to net-zero on top of real data.',
     icon: LineChart,
-    color: 'from-green-500 to-emerald-500',
+    color: 'from-accent-500 to-primary-400',
+    badge: 'Beta',
   },
   {
     name: 'CBAM Compliance',
-    description: 'EU Carbon Border Adjustment Mechanism support with quarterly reporting.',
+    description:
+      'EU Carbon Border Adjustment Mechanism support: quarterly reports and certificate costs — plus a free exemption checker anyone can run, no signup.',
     icon: Shield,
     color: 'from-accent-500 to-secondary-400',
-    badge: 'Under development',
+    badge: 'Beta',
   },
 ];
 
 const stats = [
-  { value: '15+', label: 'Scope 3 Categories', icon: BarChart3 },
-  { value: '99.9%', label: 'Uptime SLA', icon: Zap },
-  { value: '20+', label: 'CBAM Products', icon: FileCheck },
-  { value: '50+', label: 'Emission Factors', icon: Leaf },
+  { value: 'All 15', label: 'Scope 3 Categories', icon: BarChart3 },
+  { value: 'Minutes', label: 'From File to Footprint', icon: Zap },
+  { value: '20+', label: 'CBAM Product Groups', icon: FileCheck },
+  { value: 'ISO 14064', label: 'Audit-Ready Methodology', icon: Leaf },
 ];
 
 const aboutPoints = [
@@ -187,7 +191,7 @@ export default function Home() {
       {/* Floating background orbs */}
       <FloatingOrb className="w-96 h-96 bg-primary-300 top-20 -left-48" delay={0} />
       <FloatingOrb className="w-80 h-80 bg-accent-300 top-96 right-0" delay={2} />
-      <FloatingOrb className="w-72 h-72 bg-green-400 bottom-96 left-1/4" delay={4} />
+      <FloatingOrb className="w-72 h-72 bg-accent-300 bottom-96 left-1/4" delay={4} />
       <FloatingOrb className="w-64 h-64 bg-secondary-200 bottom-20 right-1/4" delay={1} />
 
       {/* Hero Section */}
@@ -201,7 +205,7 @@ export default function Home() {
             >
               <span className="inline-flex items-center gap-2 glass-card px-5 py-2 text-sm font-medium text-primary-700 mb-8">
                 <Sparkles className="w-4 h-4 text-primary-500" />
-                Powered by AI in 2026
+                Now live — AI-powered carbon accounting
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
@@ -243,12 +247,13 @@ export default function Home() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href={APP_URL}
+                href={CBAM_CHECK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl glass-card px-8 py-4 text-lg font-semibold text-gray-900 hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl glass-card px-8 py-4 text-lg font-semibold text-primary-700 hover:scale-105 transition-all duration-300"
               >
-                Open App
+                <Shield className="w-5 h-5" />
+                Free CBAM check
               </a>
               <Link
                 href="/demo"
@@ -265,11 +270,11 @@ export default function Home() {
               className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500"
             >
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-green-500" />
+                <CheckCircle2 className="w-5 h-5 text-accent-500" />
                 14-day free trial
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-green-500" />
+                <CheckCircle2 className="w-5 h-5 text-accent-500" />
                 No credit card required
               </span>
             </motion.div>
@@ -297,6 +302,68 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Try-it strip — two zero-commitment doors: the live demo and the CBAM checker */}
+      <section className="relative pb-24 -mt-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-6">
+            <motion.a
+              href={TRY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -6 }}
+              className="glass-card p-8 flex items-start gap-5 group"
+            >
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-primary-500 to-accent-400 shadow-lg shrink-0">
+                <FileSpreadsheet className="w-7 h-7 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Try it on your own file
+                </h3>
+                <p className="text-gray-600 mb-3">
+                  Drop a messy spreadsheet into the live demo and watch it become
+                  calculated emissions — no signup, no sales call.
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 group-hover:gap-2.5 transition-all">
+                  Open the live demo <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </motion.a>
+
+            <motion.a
+              href={CBAM_CHECK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -6 }}
+              className="glass-card p-8 flex items-start gap-5 group"
+            >
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-secondary-500 to-primary-400 shadow-lg shrink-0">
+                <Shield className="w-7 h-7 text-white" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Exporting to the EU? Check your CBAM exposure
+                </h3>
+                <p className="text-gray-600 mb-3">
+                  Answer a few questions and know in about two minutes whether the
+                  Carbon Border Adjustment Mechanism applies to your goods — free.
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 group-hover:gap-2.5 transition-all">
+                  Run the free CBAM check <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </motion.a>
+          </div>
         </div>
       </section>
 
@@ -350,9 +417,9 @@ export default function Home() {
                 >
                   <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${
                     index === 0 ? 'from-primary-500 to-accent-400' :
-                    index === 1 ? 'from-green-500 to-emerald-500' :
+                    index === 1 ? 'from-accent-500 to-primary-400' :
                     index === 2 ? 'from-secondary-500 to-primary-400' :
-                    'from-orange-500 to-amber-500'
+                    'from-secondary-500 to-accent-400'
                   } mb-4 shadow-lg`}>
                     <point.icon className="w-6 h-6 text-white" />
                   </div>
@@ -508,10 +575,10 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: Shield, text: 'SOC 2 Type I Ready', color: 'from-primary-500 to-accent-400' },
-                  { icon: Globe2, text: 'GDPR Compliant', color: 'from-green-500 to-emerald-500' },
+                  { icon: Shield, text: 'Encrypted at Rest & in Transit', color: 'from-primary-500 to-accent-400' },
+                  { icon: Globe2, text: 'GDPR Compliant', color: 'from-accent-500 to-primary-400' },
                   { icon: Clock, text: 'Comprehensive Audit Logging', color: 'from-secondary-500 to-primary-400' },
-                  { icon: Building2, text: 'Multi-tenant Data Isolation', color: 'from-orange-500 to-amber-500' },
+                  { icon: Building2, text: 'Multi-tenant Data Isolation', color: 'from-secondary-500 to-accent-400' },
                   { icon: FileSpreadsheet, text: 'GHG Protocol Aligned', color: 'from-accent-500 to-secondary-400' },
                 ].map((item, index) => (
                   <motion.div

@@ -111,7 +111,8 @@ export default function Pricing() {
             Simple <span className="gradient-text">pricing</span>, serious accounting
           </h2>
           <p className="text-xl text-gray-600">
-            Every plan starts with a 14-day free trial. No credit card required.
+            Paid plans start with a 14-day free trial — the full engine on your own
+            data, no credit card. Exports unlock when you subscribe.
           </p>
         </div>
 
@@ -125,7 +126,7 @@ export default function Pricing() {
               transition={{ delay: i * 0.08 }}
               className={`relative flex flex-col rounded-3xl border p-8 ${
                 tier.highlighted
-                  ? 'border-emerald-500 bg-white shadow-2xl scale-[1.03]'
+                  ? 'border-primary-500 bg-white shadow-2xl scale-[1.03]'
                   : 'border-gray-200 bg-white/70'
               }`}
             >
@@ -143,7 +144,7 @@ export default function Pricing() {
               <ul className="mt-6 flex-1 space-y-2.5">
                 {tier.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary-500" />
                     {f}
                   </li>
                 ))}
@@ -151,7 +152,7 @@ export default function Pricing() {
               {tier.enterprise ? (
                 <a
                   href="/demo"
-                  className="mt-8 rounded-xl border border-gray-300 px-4 py-3 text-center text-sm font-semibold text-gray-900 hover:border-emerald-500"
+                  className="mt-8 rounded-xl border border-gray-300 px-4 py-3 text-center text-sm font-semibold text-gray-900 hover:border-primary-500"
                 >
                   Talk to us for a quote
                 </a>
@@ -161,7 +162,7 @@ export default function Pricing() {
                   className={`mt-8 rounded-xl px-4 py-3 text-sm font-semibold ${
                     tier.highlighted
                       ? 'animated-gradient text-white shine-effect'
-                      : 'border border-gray-300 text-gray-900 hover:border-emerald-500'
+                      : 'border border-gray-300 text-gray-900 hover:border-primary-500'
                   }`}
                 >
                   {tier.name === 'Free' ? 'Start free' : 'Try it free for 14 days'}

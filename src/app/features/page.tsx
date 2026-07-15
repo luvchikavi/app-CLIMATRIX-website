@@ -25,8 +25,8 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
-// Change this to your production app URL
-const APP_URL = 'http://localhost:3003';
+// The live platform app
+const APP_URL = 'https://app.climatrix.co';
 
 const mainFeatures = [
   {
@@ -35,7 +35,7 @@ const mainFeatures = [
     tagline: 'Complete Carbon Footprint Management',
     description: 'Track and manage your greenhouse gas emissions across all three scopes with precision and ease.',
     icon: BarChart3,
-    color: 'primary',
+    chip: 'bg-primary-100 text-primary-600',
     features: [
       'Scope 1: Direct emissions from owned sources',
       'Scope 2: Indirect emissions from purchased energy',
@@ -52,7 +52,8 @@ const mainFeatures = [
     tagline: 'EU Carbon Border Adjustment Made Easy',
     description: 'Stay compliant with EU CBAM regulations with automated reporting and certificate management.',
     icon: FileCheck,
-    color: 'secondary',
+    chip: 'bg-secondary-100 text-secondary-600',
+    badge: 'Beta',
     features: [
       '20+ CBAM product categories supported',
       'Quarterly reporting automation',
@@ -69,7 +70,8 @@ const mainFeatures = [
     tagline: 'Product Environmental Transparency',
     description: 'Conduct life cycle assessments and manage environmental product declarations for your products.',
     icon: Leaf,
-    color: 'accent',
+    chip: 'bg-accent-100 text-accent-600',
+    badge: 'On the roadmap',
     features: [
       'Cradle-to-grave life cycle assessment',
       'EPD creation and management',
@@ -86,7 +88,8 @@ const mainFeatures = [
     tagline: 'Plan Your Path to Net-Zero',
     description: 'Model different reduction scenarios and initiatives to achieve your sustainability goals.',
     icon: LineChart,
-    color: 'orange',
+    chip: 'bg-primary-100 text-primary-600',
+    badge: 'Beta',
     features: [
       'What-if scenario modeling',
       'Initiative impact projection',
@@ -164,11 +167,16 @@ export default function FeaturesPage() {
                 transition={{ duration: 0.5 }}
                 className={index % 2 === 1 ? 'lg:order-2' : ''}
               >
-                <div className={`inline-flex p-3 rounded-xl bg-${feature.color}-100 mb-4`}>
-                  <feature.icon className={`w-8 h-8 text-${feature.color}-600`} />
+                <div className={`inline-flex p-3 rounded-xl mb-4 ${feature.chip}`}>
+                  <feature.icon className="w-8 h-8" />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">
                   {feature.name}
+                  {feature.badge && (
+                    <span className="ml-3 align-middle rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+                      {feature.badge}
+                    </span>
+                  )}
                 </h2>
                 <p className="text-lg text-primary-600 font-medium mb-4">
                   {feature.tagline}
@@ -208,15 +216,15 @@ export default function FeaturesPage() {
         </section>
       ))}
 
-      {/* Scope 3 Categories Section */}
-      <section className="py-24 bg-gray-900 text-white">
+      {/* Scope 3 Categories Section — deep-pine band (the Canopy forest rail tone) */}
+      <section className="py-24 bg-secondary-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               All 15 Scope 3 Categories
-              <span className="block text-primary-400">Fully Supported</span>
+              <span className="block text-accent-300">Fully Supported</span>
             </h2>
-            <p className="text-lg text-gray-400">
+            <p className="text-lg text-secondary-200">
               Comprehensive coverage of the complete GHG Protocol Scope 3 standard.
             </p>
           </div>
@@ -229,15 +237,15 @@ export default function FeaturesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-gray-800 rounded-xl p-4 hover:bg-gray-700 transition-colors"
+                className="bg-secondary-800 rounded-xl p-4 hover:bg-secondary-700 transition-colors"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="w-8 h-8 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-400 font-bold text-sm">
+                  <span className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center text-accent-300 font-bold text-sm">
                     {category.number}
                   </span>
-                  <category.icon className="w-5 h-5 text-gray-400" />
+                  <category.icon className="w-5 h-5 text-secondary-300" />
                 </div>
-                <p className="text-sm text-gray-300">{category.name}</p>
+                <p className="text-sm text-secondary-100">{category.name}</p>
               </motion.div>
             ))}
           </div>

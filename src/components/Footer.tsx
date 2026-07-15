@@ -1,37 +1,35 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import { Leaf, Mail, Linkedin, Twitter } from 'lucide-react';
+import { Leaf, Mail, Linkedin } from 'lucide-react';
 
 const footerLinks = {
   product: [
     { name: 'Features', href: '/features' },
-    { name: 'Demo', href: '/demo' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Integrations', href: '/features#integrations' },
-    { name: 'Open App', href: 'http://localhost:3003' },
+    { name: 'Open App', href: 'https://app.climatrix.co' },
   ],
   solutions: [
     { name: 'GHG Emissions', href: '/features#ghg' },
     { name: 'CBAM Compliance', href: '/features#cbam' },
-    { name: 'LCA & EPD', href: '/features#lca' },
+    { name: 'Free CBAM Check', href: 'https://app.climatrix.co/cbam-check' },
     { name: 'Scenario Planning', href: '/features#scenarios' },
   ],
   company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/demo' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Careers', href: '/careers' },
+    { name: 'How It Works', href: '/#about' },
+    { name: 'Request a Demo', href: '/demo' },
+    { name: 'Contact', href: 'mailto:avi@climatrix.co' },
   ],
   legal: [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Security', href: '/security' },
-    { name: 'GDPR', href: '/gdpr' },
+    { name: 'Privacy Policy', href: 'https://app.climatrix.co/privacy' },
+    { name: 'Terms of Service', href: 'https://app.climatrix.co/terms' },
+    { name: 'Security', href: 'https://app.climatrix.co/security' },
   ],
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-secondary-900 text-secondary-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           {/* Brand column */}
@@ -46,30 +44,22 @@ export default function Footer() {
                 </span>
               </Link>
             </div>
-            <p className="text-sm text-gray-400 mb-6 max-w-xs">
+            <p className="text-sm text-secondary-200 mb-6 max-w-xs">
               The complete carbon accounting platform for modern businesses.
               Track, report, and reduce your environmental footprint.
             </p>
             <div className="flex gap-4">
               <a
                 href="https://linkedin.com/company/climatrix"
-                className="text-gray-400 hover:text-primary-400 transition-colors"
+                className="text-secondary-200 hover:text-accent-300 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com/climatrix"
-                className="text-gray-400 hover:text-primary-400 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:luvchik.avi@gmail.com"
-                className="text-gray-400 hover:text-primary-400 transition-colors"
+                href="mailto:avi@climatrix.co"
+                className="text-secondary-200 hover:text-accent-300 transition-colors"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -82,7 +72,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-primary-400 transition-colors">
+                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -96,7 +86,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.solutions.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-primary-400 transition-colors">
+                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -110,7 +100,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-primary-400 transition-colors">
+                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -124,7 +114,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-primary-400 transition-colors">
+                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -134,23 +124,23 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-12 pt-8 border-t border-secondary-700">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-secondary-300">
               &copy; {new Date().getFullYear()} CLIMATRIX. All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm text-gray-500">
+            <div className="flex items-center gap-6 text-sm text-secondary-300">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent-500"></span>
                 GDPR Compliant
               </span>
               <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary-500"></span>
-                SOC 2 Ready
+                <span className="w-2 h-2 rounded-full bg-primary-400"></span>
+                Encrypted &amp; Isolated
               </span>
             </div>
-            <p className="text-sm text-gray-500">
-              Questions? <a href="mailto:luvchik.avi@gmail.com" className="text-primary-400 hover:underline">luvchik.avi@gmail.com</a>
+            <p className="text-sm text-secondary-300">
+              Questions? <a href="mailto:avi@climatrix.co" className="text-accent-300 hover:underline">avi@climatrix.co</a>
             </p>
           </div>
         </div>
