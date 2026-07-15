@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Open_Sans } from 'next/font/google';
+import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
 
-// Open Sans is the single CLIMATRIX brand font (matches the platform app).
-const openSans = Open_Sans({
-  subsets: ['latin', 'hebrew'],
+// Nunito Sans is the Canopy brand font (matches the platform app).
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
   variable: '--font-sans',
 });
 import Navbar from '@/components/Navbar';
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${openSans.variable} font-sans`}>
+    <html lang="en" className={`scroll-smooth ${nunitoSans.variable} font-sans`}>
       <body className="antialiased">
         <Navbar />
         <main className="min-h-screen pt-16">

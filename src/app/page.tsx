@@ -81,7 +81,7 @@ const features: {
     description:
       'Drop any spreadsheet — fuel cards, utility bills, ERP spend dumps. The parser knows your organization before it reads a row and maps every line to the right scope and category.',
     icon: Sparkles,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-primary-500 to-accent-400',
   },
   {
     name: 'Honest data quality',
@@ -95,7 +95,7 @@ const features: {
     description:
       'Full Scope 1, 2 and 3 reporting with the factor, source and formula behind every figure — plus an audit package and verification workflow.',
     icon: FileCheck,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-secondary-500 to-primary-400',
   },
   {
     name: 'Decarbonization planning',
@@ -107,7 +107,7 @@ const features: {
     name: 'CBAM Compliance',
     description: 'EU Carbon Border Adjustment Mechanism support with quarterly reporting.',
     icon: Shield,
-    color: 'from-cyan-500 to-teal-500',
+    color: 'from-accent-500 to-secondary-400',
     badge: 'Under development',
   },
 ];
@@ -185,10 +185,10 @@ export default function Home() {
   return (
     <div className="overflow-hidden relative">
       {/* Floating background orbs */}
-      <FloatingOrb className="w-96 h-96 bg-blue-400 top-20 -left-48" delay={0} />
-      <FloatingOrb className="w-80 h-80 bg-purple-400 top-96 right-0" delay={2} />
+      <FloatingOrb className="w-96 h-96 bg-primary-300 top-20 -left-48" delay={0} />
+      <FloatingOrb className="w-80 h-80 bg-accent-300 top-96 right-0" delay={2} />
       <FloatingOrb className="w-72 h-72 bg-green-400 bottom-96 left-1/4" delay={4} />
-      <FloatingOrb className="w-64 h-64 bg-pink-400 bottom-20 right-1/4" delay={1} />
+      <FloatingOrb className="w-64 h-64 bg-secondary-200 bottom-20 right-1/4" delay={1} />
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-32 lg:pt-32 lg:pb-40">
@@ -349,9 +349,9 @@ export default function Home() {
                   className="glass-card p-6 hover:glow transition-all duration-300"
                 >
                   <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${
-                    index === 0 ? 'from-blue-500 to-cyan-500' :
+                    index === 0 ? 'from-primary-500 to-accent-400' :
                     index === 1 ? 'from-green-500 to-emerald-500' :
-                    index === 2 ? 'from-purple-500 to-pink-500' :
+                    index === 2 ? 'from-secondary-500 to-primary-400' :
                     'from-orange-500 to-amber-500'
                   } mb-4 shadow-lg`}>
                     <point.icon className="w-6 h-6 text-white" />
@@ -508,11 +508,11 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: Shield, text: 'SOC 2 Type I Ready', color: 'from-blue-500 to-cyan-500' },
+                  { icon: Shield, text: 'SOC 2 Type I Ready', color: 'from-primary-500 to-accent-400' },
                   { icon: Globe2, text: 'GDPR Compliant', color: 'from-green-500 to-emerald-500' },
-                  { icon: Clock, text: 'Comprehensive Audit Logging', color: 'from-purple-500 to-pink-500' },
+                  { icon: Clock, text: 'Comprehensive Audit Logging', color: 'from-secondary-500 to-primary-400' },
                   { icon: Building2, text: 'Multi-tenant Data Isolation', color: 'from-orange-500 to-amber-500' },
-                  { icon: FileSpreadsheet, text: 'GHG Protocol Aligned', color: 'from-cyan-500 to-teal-500' },
+                  { icon: FileSpreadsheet, text: 'GHG Protocol Aligned', color: 'from-accent-500 to-secondary-400' },
                 ].map((item, index) => (
                   <motion.div
                     key={item.text}

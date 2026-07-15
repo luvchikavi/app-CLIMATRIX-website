@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1 items-center gap-4">
           {/* CLIMATRIX Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/25">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-600 flex items-center justify-center shadow-lg shadow-primary-500/25">
               <Leaf className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
