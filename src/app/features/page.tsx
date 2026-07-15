@@ -80,7 +80,7 @@ const mainFeatures = [
       'Third-party verification support',
       'Public EPD registry integration',
     ],
-    image: '/images/dashboard_epd.png',
+    image: null,
   },
   {
     id: 'scenarios',
@@ -203,11 +203,24 @@ export default function FeaturesPage() {
               >
                 <div className="rounded-2xl bg-gradient-to-br from-primary-100 via-secondary-50 to-accent-100 p-2 lg:p-3 shadow-xl">
                   <div className="rounded-xl overflow-hidden bg-white shadow-inner">
-                    <img
-                      src={feature.image}
-                      alt={feature.name}
-                      className="w-full h-auto"
-                    />
+                    {feature.image ? (
+                      <img
+                        src={feature.image}
+                        alt={feature.name}
+                        className="w-full h-auto"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center gap-3 py-24 px-8 text-center">
+                        <div className="inline-flex p-4 rounded-2xl bg-accent-100">
+                          <feature.icon className="w-8 h-8 text-accent-600" />
+                        </div>
+                        <p className="font-semibold text-gray-900">In design</p>
+                        <p className="text-sm text-gray-600 max-w-xs">
+                          Ships with the LCA module — built on the same data you
+                          already collect.
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
