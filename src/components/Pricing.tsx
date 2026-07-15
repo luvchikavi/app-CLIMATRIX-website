@@ -16,47 +16,47 @@ const LEADS_ENDPOINT = '/api/trial-lead';
 
 const tiers = [
   {
-    name: 'Basic',
-    price: '$99',
-    cadence: '/mo',
-    blurb: 'Get a defensible Scope 1 & 2 inventory for one site.',
+    name: 'Free',
+    price: '$0',
+    cadence: '',
+    blurb: 'Explore your footprint — one site, no card, no clock.',
     features: [
       '1 site, 1 user',
       'Scope 1 & 2 tracking',
       'Data Hub with guided setup',
-      'Template & spreadsheet import',
-      'GHG report exports (CSV / PDF)',
+      'On-screen preview reports',
+      'Free CBAM exemption checker',
     ],
     highlighted: false,
   },
   {
-    name: 'Advance',
+    name: 'Starter',
+    price: '$99',
+    cadence: '/mo',
+    blurb: 'Get a defensible Scope 1 & 2 inventory across your sites.',
+    features: [
+      'Up to 5 sites, 3 users',
+      'Everything in Free',
+      'Template & spreadsheet import',
+      'Report exports (CSV / JSON)',
+      'Email support',
+    ],
+    highlighted: false,
+  },
+  {
+    name: 'Professional',
     price: '$349',
     cadence: '/mo',
     blurb: 'Full value-chain accounting with the AI Smart Import.',
     features: [
-      'Up to 5 sites, 5 users',
-      'Everything in Basic',
+      'Up to 25 sites, 10 users',
+      'Everything in Starter',
       'All 15 Scope 3 categories',
       'AI Smart Import — any file, any layout',
-      'Data-quality ladder (measured → gap)',
-      'Decarbonization scenarios',
+      'Full exports: ISO 14064-1 · CDP · ESRS · PDF',
+      'CBAM (Beta) + Decarbonization (Beta)',
     ],
     highlighted: true,
-  },
-  {
-    name: 'Professional',
-    price: '$699',
-    cadence: '/mo',
-    blurb: 'Audit-ready operations across your whole organization.',
-    features: [
-      'Unlimited sites & users',
-      'Everything in Advance',
-      'Audit package & verification workflow',
-      'Per-site inventory profiles',
-      'Priority support',
-    ],
-    highlighted: false,
   },
   {
     name: 'Enterprise',
@@ -64,11 +64,11 @@ const tiers = [
     cadence: '',
     blurb: 'Consultants and groups managing many client inventories.',
     features: [
-      'Multi-client workspace',
+      'Unlimited sites, users & imports',
       'Custom emission factors',
       'SSO & advanced security',
       'Dedicated onboarding & support',
-      'Tailored to your engagement model',
+      'Audit support + advisory',
     ],
     highlighted: false,
     enterprise: true,
@@ -164,7 +164,7 @@ export default function Pricing() {
                       : 'border border-gray-300 text-gray-900 hover:border-emerald-500'
                   }`}
                 >
-                  Try it free for 14 days
+                  {tier.name === 'Free' ? 'Start free' : 'Try it free for 14 days'}
                 </button>
               )}
             </motion.div>
@@ -187,7 +187,9 @@ export default function Pricing() {
               <X className="h-5 w-5" />
             </button>
             <h3 className="text-xl font-bold text-gray-900">
-              Start your 14-day {trialTier} trial
+              {trialTier === 'Free'
+                ? 'Create your free account'
+                : `Start your 14-day ${trialTier} trial`}
             </h3>
             <p className="mt-1 text-sm text-gray-600">
               Tell us who you are and we’ll take you straight to your account.

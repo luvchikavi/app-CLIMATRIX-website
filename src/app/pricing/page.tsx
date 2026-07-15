@@ -9,17 +9,17 @@ const plans = [
   {
     name: 'Starter',
     description: 'Perfect for small businesses starting their sustainability journey',
-    price: { monthly: 199, annual: 169 },
+    price: { monthly: 99, annual: 84 },
     popular: false,
     features: [
       { name: 'Up to 3 users', included: true },
+      { name: 'Up to 5 sites', included: true },
       { name: 'Scope 1 & 2 tracking', included: true },
-      { name: 'Basic reporting', included: true },
-      { name: '1 organization', included: true },
+      { name: 'Report exports (CSV / JSON)', included: true },
       { name: 'Email support', included: true },
       { name: 'Scope 3 tracking', included: false },
+      { name: 'AI Smart Import', included: false },
       { name: 'CBAM compliance', included: false },
-      { name: 'LCA & EPD', included: false },
       { name: 'API access', included: false },
     ],
     cta: 'Start Free Trial',
@@ -28,17 +28,17 @@ const plans = [
   {
     name: 'Professional',
     description: 'For growing companies with comprehensive carbon management needs',
-    price: { monthly: 499, annual: 419 },
+    price: { monthly: 349, annual: 297 },
     popular: true,
     features: [
       { name: 'Up to 10 users', included: true },
-      { name: 'Scope 1, 2 & 3 tracking', included: true },
-      { name: 'Advanced reporting', included: true },
-      { name: 'Up to 5 organizations', included: true },
+      { name: 'Up to 25 sites', included: true },
+      { name: 'Scope 1, 2 & 3 — all 15 categories', included: true },
+      { name: 'AI Smart Import — any file, any layout', included: true },
+      { name: 'Full exports: ISO 14064-1 · CDP · ESRS · PDF', included: true },
+      { name: 'CBAM compliance (Beta)', included: true },
+      { name: 'Decarbonization & scenario planning (Beta)', included: true },
       { name: 'Priority support', included: true },
-      { name: 'CBAM compliance', included: true },
-      { name: 'Scenario planning', included: true },
-      { name: 'LCA & EPD', included: false },
       { name: 'API access', included: false },
     ],
     cta: 'Start Free Trial',
@@ -50,18 +50,18 @@ const plans = [
     price: { monthly: null, annual: null },
     popular: false,
     features: [
-      { name: 'Unlimited users', included: true },
+      { name: 'Unlimited users & sites', included: true },
       { name: 'All emission scopes', included: true },
       { name: 'Custom reporting', included: true },
-      { name: 'Unlimited organizations', included: true },
+      { name: 'Unlimited AI Smart Import', included: true },
       { name: 'Dedicated support', included: true },
-      { name: 'CBAM compliance', included: true },
-      { name: 'Scenario planning', included: true },
-      { name: 'LCA & EPD', included: true },
+      { name: 'CBAM compliance (Beta)', included: true },
+      { name: 'Scenario planning (Beta)', included: true },
+      { name: 'PCAF · LCA · EPD as they ship', included: true },
       { name: 'Full API access', included: true },
       { name: 'SSO & SAML', included: true },
       { name: 'Custom integrations', included: true },
-      { name: 'SLA guarantee', included: true },
+      { name: 'Audit support + advisory', included: true },
     ],
     cta: 'Contact Sales',
     ctaLink: '/demo',
@@ -71,7 +71,7 @@ const plans = [
 const faqs = [
   {
     question: 'How does the 14-day free trial work?',
-    answer: 'You get full access to all features of your chosen plan for 14 days. No credit card required. At the end of the trial, you can choose to subscribe or your account will be paused.',
+    answer: 'For 14 days you run the full parser and calculation engine on your own data — no credit card required. Report exports and some advanced views unlock when you subscribe. At the end of the trial your account is paused, but your data is preserved.',
   },
   {
     question: 'Can I switch plans later?',
@@ -83,7 +83,7 @@ const faqs = [
   },
   {
     question: 'Is my data secure?',
-    answer: 'Absolutely. CLIMATRIX is SOC 2 ready and GDPR compliant. All data is encrypted at rest and in transit, with comprehensive audit logging.',
+    answer: 'Yes. All data is encrypted at rest and in transit, every organization\'s data is strictly isolated, and the platform keeps a comprehensive audit trail of who changed what.',
   },
   {
     question: 'Do you offer discounts for non-profits?',
@@ -245,6 +245,12 @@ export default function PricingPage() {
               </motion.div>
             ))}
           </div>
+
+          <p className="mt-10 text-center text-sm text-gray-500">
+            Just exploring? The <span className="font-semibold text-gray-700">Free plan</span> —
+            1 user, 1 site, on-screen preview reports and the CBAM exemption checker — is yours
+            at signup. No card, no clock.
+          </p>
         </div>
       </section>
 
@@ -273,12 +279,13 @@ export default function PricingPage() {
               <tbody className="divide-y divide-gray-100">
                 {[
                   { feature: 'Users', starter: '3', pro: '10', enterprise: 'Unlimited' },
-                  { feature: 'Organizations', starter: '1', pro: '5', enterprise: 'Unlimited' },
+                  { feature: 'Sites', starter: '5', pro: '25', enterprise: 'Unlimited' },
                   { feature: 'Scope 1 & 2', starter: true, pro: true, enterprise: true },
                   { feature: 'Scope 3 (All 15 categories)', starter: false, pro: true, enterprise: true },
-                  { feature: 'CBAM Compliance', starter: false, pro: true, enterprise: true },
-                  { feature: 'LCA & EPD', starter: false, pro: false, enterprise: true },
-                  { feature: 'Scenario Planning', starter: false, pro: true, enterprise: true },
+                  { feature: 'AI Smart Import', starter: false, pro: '100 files/mo', enterprise: 'Unlimited' },
+                  { feature: 'Full exports (ISO 14064-1 · CDP · ESRS · PDF)', starter: false, pro: true, enterprise: true },
+                  { feature: 'CBAM Compliance (Beta)', starter: false, pro: true, enterprise: true },
+                  { feature: 'Scenario Planning (Beta)', starter: false, pro: true, enterprise: true },
                   { feature: 'API Access', starter: false, pro: false, enterprise: true },
                   { feature: 'SSO / SAML', starter: false, pro: false, enterprise: true },
                   { feature: 'Custom Integrations', starter: false, pro: false, enterprise: true },
