@@ -18,7 +18,8 @@ body {
     rgb(var(--background-start)) 0%,
     rgb(var(--background-end)) 60%,
     rgb(244, 247, 245) 100%);
-  background-attachment: fixed;
+  /* no background-attachment: fixed — it forces a full-viewport repaint on
+     every scroll frame and is the classic mobile scroll-jank trigger */
   font-family: var(--font-sans), system-ui, sans-serif;
   min-height: 100vh;
 }

@@ -156,7 +156,6 @@ const FloatingOrb = ({ className, delay = 0 }: { className: string; delay?: numb
     animate={{
       y: [0, -30, 0],
       x: [0, 15, 0],
-      scale: [1, 1.1, 1],
     }}
     transition={{
       duration: 8,
@@ -290,7 +289,7 @@ export default function Home() {
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="glass-card p-6 text-center hover:scale-105 transition-all duration-300"
+                className="glass-card p-6 text-center"
                 whileHover={{ y: -5 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -413,7 +412,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="glass-card p-6 hover:glow transition-all duration-300"
+                  className="glass-card p-6 hover:glow transition-shadow duration-300"
                 >
                   <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${
                     index === 0 ? 'from-primary-500 to-accent-400' :
@@ -456,22 +455,30 @@ export default function Home() {
             className="relative"
           >
             <div className="glass-card p-3 overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeScreenshot}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative rounded-xl overflow-hidden"
-                >
-                  <img
-                    src={screenshots[activeScreenshot].image}
-                    alt={screenshots[activeScreenshot].title}
-                    className="w-full h-auto max-h-[500px] object-contain rounded-xl"
-                  />
-                </motion.div>
-              </AnimatePresence>
+              {/* Fixed 16:10 box (all screenshots are 1600x1000) so slide swaps
+                  never change the carousel's height — this was the page-wide
+                  "jumping boxes" source, re-firing every 5s auto-rotate */}
+              <div className="relative w-full aspect-[16/10] max-h-[500px]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeScreenshot}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -50 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 rounded-xl overflow-hidden"
+                  >
+                    <img
+                      src={screenshots[activeScreenshot].image}
+                      alt={screenshots[activeScreenshot].title}
+                      width={1600}
+                      height={1000}
+                      decoding="async"
+                      className="w-full h-full object-contain rounded-xl"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
               {/* Navigation */}
               <button
@@ -488,8 +495,9 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Info & Tabs */}
-            <div className="mt-8 text-center">
+            {/* Info & Tabs — min-h reserves room for the longest caption so
+                slide changes don't push the sections below */}
+            <div className="mt-8 text-center min-h-[8.5rem] sm:min-h-[5.5rem]">
               <h3 className="text-2xl font-bold text-gray-900">{screenshots[activeScreenshot].title}</h3>
               <p className="text-gray-600 mt-2">{screenshots[activeScreenshot].description}</p>
             </div>
@@ -499,12 +507,16 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={() => setActiveScreenshot(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === activeScreenshot
-                      ? 'w-8 bg-gradient-to-r from-primary-500 to-secondary-500'
-                      : 'w-2 bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
+                  className="w-8 h-2 flex items-center justify-center"
+                >
+                  <span
+                    className={`h-2 rounded-full transition-[width] duration-300 ${
+                      index === activeScreenshot
+                        ? 'w-8 bg-gradient-to-r from-primary-500 to-secondary-500'
+                        : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </motion.div>
@@ -537,7 +549,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="glass-card p-8 hover:glow transition-all duration-300 group"
+                className="glass-card p-8 hover:glow transition-shadow duration-300 group"
               >
                 <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-7 h-7 text-white" />
@@ -627,8 +639,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="glass-card p-12 lg:p-16 text-center relative overflow-hidden"
           >
-            {/* Background gradient */}
-            <div className="absolute inset-0 animated-gradient opacity-10" />
+            {/* Background gradient — static: the animated version repainted
+                this full-bleed layer every frame, forever */}
+            <div className="absolute inset-0 gradient-bg opacity-10" />
 
             <div className="relative">
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">

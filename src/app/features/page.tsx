@@ -207,6 +207,9 @@ export default function FeaturesPage() {
                       <img
                         src={feature.image}
                         alt={feature.name}
+                        width={1600}
+                        height={1000}
+                        decoding="async"
                         className="w-full h-auto"
                       />
                     ) : (
