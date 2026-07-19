@@ -50,7 +50,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com/company/climatrix"
+                href="https://linkedin.com/company/climatrix-co"
                 className="text-secondary-200 hover:text-accent-300 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
