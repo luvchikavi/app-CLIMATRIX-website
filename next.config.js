@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        // Printed conference QR codes point here; the checker lives on the app.
+        source: '/cbam-check',
+        destination: 'https://app.climatrix.co/cbam-check',
+        permanent: false,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
