@@ -35,7 +35,7 @@ const tiers = [
     cadence: '/mo',
     blurb: 'Get a defensible Scope 1 & 2 inventory across your sites.',
     features: [
-      'Up to 5 sites, 3 users',
+      '2 sites, 2 users',
       'Everything in Free',
       'Template & spreadsheet import',
       'Report exports (CSV / JSON)',
@@ -45,11 +45,11 @@ const tiers = [
   },
   {
     name: 'Professional',
-    price: '$349',
-    cadence: '/mo',
+    price: '$297',
+    cadence: '/mo, billed yearly',
     blurb: 'Full value-chain accounting with the AI Smart Import.',
     features: [
-      'Up to 25 sites, 10 users',
+      '5 sites & 2 users incl. — add packs & seats',
       'Everything in Starter',
       'All 15 Scope 3 categories',
       'AI Smart Import — any file, any layout',
@@ -171,6 +171,15 @@ export default function Pricing() {
             </motion.div>
           ))}
         </div>
+
+        <p className="mt-10 text-center text-sm text-gray-600">
+          Only report once a year?{' '}
+          <span className="font-semibold text-gray-900">Report Pass — $1,790</span>{' '}
+          opens everything in Professional for 90 days, licensed to one reporting year.{' '}
+          <a href="/pricing" className="font-semibold text-primary-600 hover:text-primary-700">
+            See all plans →
+          </a>
+        </p>
       </div>
 
       {/* Trial gate — details first, then on to signup */}

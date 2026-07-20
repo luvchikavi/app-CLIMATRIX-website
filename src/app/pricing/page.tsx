@@ -12,8 +12,8 @@ const plans = [
     price: { monthly: 99, annual: 84 },
     popular: false,
     features: [
-      { name: 'Up to 3 users', included: true },
-      { name: 'Up to 5 sites', included: true },
+      { name: '2 users', included: true },
+      { name: '2 sites', included: true },
       { name: 'Scope 1 & 2 tracking', included: true },
       { name: 'Report exports (CSV / JSON)', included: true },
       { name: 'Email support', included: true },
@@ -28,11 +28,11 @@ const plans = [
   {
     name: 'Professional',
     description: 'For growing companies with comprehensive carbon management needs',
-    price: { monthly: 349, annual: 297 },
+    price: { monthly: null, annual: 297 },
     popular: true,
     features: [
-      { name: 'Up to 10 users', included: true },
-      { name: 'Up to 25 sites', included: true },
+      { name: '2 users included — add seats anytime', included: true },
+      { name: '5 sites included — add site packs anytime', included: true },
       { name: 'Scope 1, 2 & 3 — all 15 categories', included: true },
       { name: 'AI Smart Import — any file, any layout', included: true },
       { name: 'Full exports: ISO 14064-1 · CDP · ESRS · PDF', included: true },
@@ -76,6 +76,14 @@ const faqs = [
   {
     question: 'Can I switch plans later?',
     answer: 'Yes, you can upgrade or downgrade your plan at any time. When upgrading, you\'ll get immediate access to new features. When downgrading, changes take effect at the next billing cycle.',
+  },
+  {
+    question: 'We only report once a year — do we need a subscription?',
+    answer: 'No. The Report Pass is built for exactly that: a one-time $1,790 purchase that opens everything in Professional for 90 days, licensed to the reporting year you\'re working on. Your data and audit trail stay afterwards, and auditors can be given access again with a new pass or a subscription.',
+  },
+  {
+    question: 'What if we outgrow the included sites or seats?',
+    answer: 'Professional includes 5 sites and 2 users. Add capacity anytime without changing plans: site packs add 5 sites for $490/year, and extra seats are $190/year each.',
   },
   {
     question: 'What payment methods do you accept?',
@@ -205,6 +213,19 @@ export default function PricingPage() {
                         </p>
                       )}
                     </>
+                  ) : plan.price.annual ? (
+                    // Annual-only (Professional): the monthly toggle doesn't apply.
+                    <>
+                      <span className={`text-4xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                        ${plan.price.annual}
+                      </span>
+                      <span className={plan.popular ? 'text-primary-100' : 'text-gray-600'}>
+                        /month
+                      </span>
+                      <p className={`text-sm mt-1 ${plan.popular ? 'text-primary-200' : 'text-gray-500'}`}>
+                        Billed annually · annual license
+                      </p>
+                    </>
                   ) : (
                     <span className={`text-3xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
                       Custom Pricing
@@ -251,6 +272,54 @@ export default function PricingPage() {
             1 user, 1 site, on-screen preview reports and the CBAM exemption checker — is yours
             at signup. No card, no clock.
           </p>
+
+          {/* Report Pass — the once-a-year reporter's product */}
+          <div className="mt-12 rounded-2xl border-2 border-primary-200 bg-primary-50/40 p-8">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-1">
+                  <h3 className="text-2xl font-bold text-gray-900">Report Pass</h3>
+                  <span className="rounded-full bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1">
+                    One-time
+                  </span>
+                </div>
+                <p className="text-gray-600 mb-3">
+                  Only report once a year? Skip the subscription. Everything in Professional for
+                  90 days, licensed to one reporting year — and your data stays afterwards.
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5">
+                  {[
+                    'All exports for that year — ISO 14064-1, CDP, ESRS, PDF',
+                    'Full AI Smart Import, Scope 1–3',
+                    'CBAM & decarbonization tools',
+                    'Data & audit trail preserved after the window',
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-accent-500 mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="text-center md:text-right md:pl-6 md:border-l border-primary-200">
+                <div className="text-4xl font-bold text-gray-900">$1,790</div>
+                <p className="text-sm text-gray-600 mb-3">per reporting year</p>
+                <a
+                  href="/demo"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl gradient-bg px-6 py-3 font-semibold text-white transition-all hover:opacity-90"
+                >
+                  Get a Report Pass
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-gray-500">
+            Need more room on Professional?{' '}
+            <span className="font-semibold text-gray-700">Site packs (+5 sites) $490/yr</span> ·{' '}
+            <span className="font-semibold text-gray-700">Extra seats $190/yr</span>.
+          </p>
         </div>
       </section>
 
@@ -278,8 +347,8 @@ export default function PricingPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {[
-                  { feature: 'Users', starter: '3', pro: '10', enterprise: 'Unlimited' },
-                  { feature: 'Sites', starter: '5', pro: '25', enterprise: 'Unlimited' },
+                  { feature: 'Users', starter: '2', pro: '2 incl. (+seats)', enterprise: 'Unlimited' },
+                  { feature: 'Sites', starter: '2', pro: '5 incl. (+packs)', enterprise: 'Unlimited' },
                   { feature: 'Scope 1 & 2', starter: true, pro: true, enterprise: true },
                   { feature: 'Scope 3 (All 15 categories)', starter: false, pro: true, enterprise: true },
                   { feature: 'AI Smart Import', starter: false, pro: '100 files/mo', enterprise: 'Unlimited' },
