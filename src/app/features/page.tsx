@@ -23,6 +23,8 @@ import {
   Building,
   Lightbulb,
   ExternalLink,
+  Package,
+  ShieldCheck,
 } from 'lucide-react';
 
 // The live platform app
@@ -31,17 +33,17 @@ const APP_URL = 'https://app.climatrix.co';
 const mainFeatures = [
   {
     id: 'ghg',
-    name: 'GHG Emissions Tracking',
-    tagline: 'Complete Carbon Footprint Management',
-    description: 'Track and manage your greenhouse gas emissions across all three scopes with precision and ease.',
+    name: 'Corporate Carbon Footprint (CCF)',
+    tagline: 'Your full GHG inventory — GHG Protocol & ISO 14064-1',
+    description: 'Your complete organizational inventory across Scopes 1, 2 and 3 — calculated, screened, and ready for the reports your stakeholders actually ask for.',
     icon: BarChart3,
     chip: 'bg-primary-100 text-primary-600',
     features: [
-      'Scope 1: Direct emissions from owned sources',
-      'Scope 2: Indirect emissions from purchased energy',
-      'Scope 3: All 15 upstream and downstream categories',
+      'Scopes 1, 2 & 3 — all 15 Scope 3 categories with completeness screening',
+      'ISO 14064-1 report plus VSME, ESRS E1 and CDP exports',
+      'Base-year & recalculation policy disclosure',
+      'Per-row provenance and data-quality tiers behind every figure',
       'AI-powered data extraction from invoices',
-      'Automated emission factor matching',
       'Real-time dashboard and analytics',
     ],
     image: '/images/dashboard_emissions.png',
@@ -65,22 +67,58 @@ const mainFeatures = [
     image: '/images/dashboard_cbam.png',
   },
   {
+    id: 'pcf',
+    name: 'Product Carbon Footprint (PCF)',
+    tagline: 'Cradle-to-gate footprints per product, exchanged in PACT v3',
+    description: 'Model your products’ bills of materials and calculate cradle-to-gate footprints your customers’ systems can actually consume.',
+    icon: Package,
+    chip: 'bg-accent-100 text-accent-600',
+    badge: 'Beta',
+    features: [
+      'ISO 14067 cradle-to-gate footprint per declared unit',
+      'BOM modeling grounded in the same audited factor library',
+      'PACT v3 Data Exchange JSON your customers’ systems ingest',
+      'Supplier PCF ingestion with primary-data-share tracking',
+      'CBAM synergy — shared CN product codes',
+    ],
+    image: '/images/dashboard_pcf.png',
+  },
+  {
+    id: 'verifier',
+    name: 'Verifier Portal',
+    tagline: 'Give your auditor a window, not a spreadsheet',
+    description: 'External verifiers get read-only access to the inventory they’re verifying — with the provenance behind every number, and none of the email ping-pong.',
+    icon: ShieldCheck,
+    chip: 'bg-secondary-100 text-secondary-600',
+    features: [
+      'Read-only, token-gated access for external verifiers',
+      'Full inventory with per-row provenance',
+      'Audit log of every change and every visit',
+      'Revocable, period-scoped — no verifier account needed',
+      'Built for ISO 14064-3 verification (remote allowed per ISO 14064-5)',
+    ],
+    image: null,
+    placeholderTitle: 'Live today',
+    placeholder: 'Screenshot coming — the portal is live in the app today.',
+  },
+  {
     id: 'lca',
     name: 'LCA & EPD Management',
-    tagline: 'Product Environmental Transparency',
-    description: 'Conduct life cycle assessments and manage environmental product declarations for your products.',
+    tagline: 'From product footprint to full environmental declaration',
+    description: 'LCA-lite screening on the EF 3.1 impact method, feeding EN 15804+A2 EPD preparation — the next modules on our roadmap.',
     icon: Leaf,
     chip: 'bg-accent-100 text-accent-600',
     badge: 'On the roadmap',
     features: [
-      'Cradle-to-grave life cycle assessment',
-      'EPD creation and management',
-      'Impact category analysis (GWP, AP, EP, etc.)',
-      'PCR compliance checking',
+      'LCA-lite screening built on the EF 3.1 impact method',
+      'Impact categories beyond climate (GWP, AP, EP, and more)',
+      'EN 15804+A2 EPD preparation for construction products',
+      'Builds on your PCF models — no data re-entry',
       'Third-party verification support',
-      'Public EPD registry integration',
     ],
     image: null,
+    placeholderTitle: 'In design',
+    placeholder: 'Ships with the LCA module — built on the same data you already collect.',
   },
   {
     id: 'scenarios',
@@ -217,10 +255,9 @@ export default function FeaturesPage() {
                         <div className="inline-flex p-4 rounded-2xl bg-accent-100">
                           <feature.icon className="w-8 h-8 text-accent-600" />
                         </div>
-                        <p className="font-semibold text-gray-900">In design</p>
+                        <p className="font-semibold text-gray-900">{feature.placeholderTitle}</p>
                         <p className="text-sm text-gray-600 max-w-xs">
-                          Ships with the LCA module — built on the same data you
-                          already collect.
+                          {feature.placeholder}
                         </p>
                       </div>
                     )}

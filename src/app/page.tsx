@@ -28,6 +28,8 @@ import {
   Mail,
   Zap,
   ArrowRight,
+  Package,
+  ShieldCheck,
 } from 'lucide-react';
 
 // The live platform app (climatrix.co is the one brand domain)
@@ -113,6 +115,21 @@ const features: {
     icon: Shield,
     color: 'from-accent-500 to-secondary-400',
     badge: 'Beta',
+  },
+  {
+    name: 'Product Carbon Footprint',
+    description:
+      'Model any product’s BOM and get a cradle-to-gate PCF per ISO 14067 — exported as PACT v3 JSON your customers can ingest.',
+    icon: Package,
+    color: 'from-primary-500 to-accent-400',
+    badge: 'Beta',
+  },
+  {
+    name: 'Verifier Portal',
+    description:
+      'Your external auditor gets a read-only portal with full provenance and audit log — verification without email ping-pong.',
+    icon: ShieldCheck,
+    color: 'from-secondary-500 to-primary-400',
   },
 ];
 

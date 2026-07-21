@@ -74,6 +74,10 @@ const faqs = [
     answer: 'For 14 days you run the full parser and calculation engine on your own data — no credit card required. Report exports and some advanced views unlock when you subscribe. At the end of the trial your account is paused, but your data is preserved.',
   },
   {
+    question: 'Which modules are included?',
+    answer: 'Every plan includes the full corporate carbon footprint (CCF). CBAM and product carbon footprints (PCF) ship in Beta on Professional. The verifier portal is included wherever report exports are. LCA and EPD are next on the roadmap and will ship as add-on modules.',
+  },
+  {
     question: 'Can I switch plans later?',
     answer: 'Yes, you can upgrade or downgrade your plan at any time. When upgrading, you\'ll get immediate access to new features. When downgrading, changes take effect at the next billing cycle.',
   },

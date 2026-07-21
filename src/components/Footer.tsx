@@ -12,6 +12,8 @@ const footerLinks = {
   solutions: [
     { name: 'GHG Emissions', href: '/features#ghg' },
     { name: 'CBAM Compliance', href: '/features#cbam' },
+    { name: 'Product Carbon Footprint', href: '/features#pcf' },
+    { name: 'Verifier Portal', href: '/features#verifier' },
     { name: 'Free CBAM Check', href: 'https://app.climatrix.co/cbam-check' },
     { name: 'Scenario Planning', href: '/features#scenarios' },
   ],
