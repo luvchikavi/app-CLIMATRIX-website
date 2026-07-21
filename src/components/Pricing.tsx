@@ -8,75 +8,28 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Check, X } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 const APP_URL = 'https://app.climatrix.co';
 // Same-origin proxy (src/app/api/trial-lead) — avoids cross-origin CORS entirely.
 const LEADS_ENDPOINT = '/api/trial-lead';
 
+// Copy lives in the message catalogs (pricingSection.tiers.*); crmName keeps
+// the lead-capture payload locale-independent.
 const tiers = [
-  {
-    name: 'Free',
-    price: '$0',
-    cadence: '',
-    blurb: 'Explore your footprint — one site, no card, no clock.',
-    features: [
-      '1 site, 1 user',
-      'Scope 1 & 2 tracking',
-      'Data Hub with guided setup',
-      'On-screen preview reports',
-      'Free CBAM exemption checker',
-    ],
-    highlighted: false,
-  },
-  {
-    name: 'Starter',
-    price: '$99',
-    cadence: '/mo',
-    blurb: 'Get a defensible Scope 1 & 2 inventory across your sites.',
-    features: [
-      '2 sites, 2 users',
-      'Everything in Free',
-      'Template & spreadsheet import',
-      'Report exports (CSV / JSON)',
-      'Email support',
-    ],
-    highlighted: false,
-  },
-  {
-    name: 'Professional',
-    price: '$297',
-    cadence: '/mo, billed yearly',
-    blurb: 'Full value-chain accounting with the AI Smart Import.',
-    features: [
-      '5 sites & 2 users incl. — add packs & seats',
-      'Everything in Starter',
-      'All 15 Scope 3 categories',
-      'AI Smart Import — any file, any layout',
-      'Full exports: ISO 14064-1 · CDP · ESRS · PDF',
-      'CBAM (Beta) + Decarbonization (Beta)',
-    ],
-    highlighted: true,
-  },
-  {
-    name: 'Enterprise',
-    price: 'Let’s talk',
-    cadence: '',
-    blurb: 'Consultants and groups managing many client inventories.',
-    features: [
-      'Unlimited sites, users & imports',
-      'Custom emission factors',
-      'SSO & advanced security',
-      'Dedicated onboarding & support',
-      'Audit support + advisory',
-    ],
-    highlighted: false,
-    enterprise: true,
-  },
-];
+  { id: 'free', crmName: 'Free', hasCadence: false, highlighted: false, enterprise: false },
+  { id: 'starter', crmName: 'Starter', hasCadence: true, highlighted: false, enterprise: false },
+  { id: 'professional', crmName: 'Professional', hasCadence: true, highlighted: true, enterprise: false },
+  { id: 'enterprise', crmName: 'Enterprise', hasCadence: false, highlighted: false, enterprise: true },
+] as const;
+
+type TierId = (typeof tiers)[number]['id'];
 
 export default function Pricing() {
-  const [trialTier, setTrialTier] = useState<string | null>(null);
+  const t = useTranslations('pricingSection');
+  const [trialTier, setTrialTier] = useState<TierId | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [org, setOrg] = useState('');
@@ -85,6 +38,7 @@ export default function Pricing() {
   const startTrial = async () => {
     if (!email.includes('@')) return;
     setBusy(true);
+    const crmName = tiers.find((tier) => tier.id === trialTier)?.crmName ?? trialTier;
     try {
       await fetch(LEADS_ENDPOINT, {
         method: 'POST',
@@ -94,7 +48,7 @@ export default function Pricing() {
           name: name.trim() || undefined,
           organization_name: org.trim() || undefined,
           source: 'website_trial',
-          what_tried: `trial:${trialTier}`,
+          what_tried: `trial:${crmName}`,
         }),
       });
     } catch {
@@ -108,18 +62,19 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-            Simple <span className="gradient-text">pricing</span>, serious accounting
+            {t.rich('heading', {
+              gradient: (chunks) => <span className="gradient-text">{chunks}</span>,
+            })}
           </h2>
           <p className="text-xl text-gray-600">
-            Paid plans start with a 14-day free trial — the full engine on your own
-            data, no credit card. Exports unlock when you subscribe.
+            {t('subheading')}
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {tiers.map((tier, i) => (
             <motion.div
-              key={tier.name}
+              key={tier.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -132,17 +87,19 @@ export default function Pricing() {
             >
               {tier.highlighted && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full animated-gradient px-4 py-1 text-xs font-semibold text-white">
-                  Most popular
+                  {t('mostPopular')}
                 </span>
               )}
-              <h3 className="text-lg font-semibold text-gray-900">{tier.name}</h3>
+              <h3 className="text-lg font-semibold text-gray-900">{t(`tiers.${tier.id}.name`)}</h3>
               <p className="mt-2">
-                <span className="text-4xl font-bold text-gray-900">{tier.price}</span>
-                <span className="text-gray-500">{tier.cadence}</span>
+                <span className="text-4xl font-bold text-gray-900">{t(`tiers.${tier.id}.price`)}</span>
+                {tier.hasCadence && (
+                  <span className="text-gray-500">{t(`tiers.${tier.id}.cadence`)}</span>
+                )}
               </p>
-              <p className="mt-2 text-sm text-gray-600">{tier.blurb}</p>
+              <p className="mt-2 text-sm text-gray-600">{t(`tiers.${tier.id}.blurb`)}</p>
               <ul className="mt-6 flex-1 space-y-2.5">
-                {tier.features.map((f) => (
+                {(t.raw(`tiers.${tier.id}.features`) as string[]).map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary-500" />
                     {f}
@@ -150,22 +107,22 @@ export default function Pricing() {
                 ))}
               </ul>
               {tier.enterprise ? (
-                <a
+                <Link
                   href="/demo"
                   className="mt-8 rounded-xl border border-gray-300 px-4 py-3 text-center text-sm font-semibold text-gray-900 hover:border-primary-500"
                 >
-                  Talk to us for a quote
-                </a>
+                  {t('enterpriseCta')}
+                </Link>
               ) : (
                 <button
-                  onClick={() => setTrialTier(tier.name)}
+                  onClick={() => setTrialTier(tier.id)}
                   className={`mt-8 rounded-xl px-4 py-3 text-sm font-semibold ${
                     tier.highlighted
                       ? 'animated-gradient text-white shine-effect'
                       : 'border border-gray-300 text-gray-900 hover:border-primary-500'
                   }`}
                 >
-                  {tier.name === 'Free' ? 'Start free' : 'Try it free for 14 days'}
+                  {tier.id === 'free' ? t('startFree') : t('tryFree')}
                 </button>
               )}
             </motion.div>
@@ -173,12 +130,14 @@ export default function Pricing() {
         </div>
 
         <p className="mt-10 text-center text-sm text-gray-600">
-          Only report once a year?{' '}
-          <span className="font-semibold text-gray-900">Report Pass — $1,790</span>{' '}
-          opens everything in Professional for 90 days, licensed to one reporting year.{' '}
-          <a href="/pricing" className="font-semibold text-primary-600 hover:text-primary-700">
-            See all plans →
-          </a>
+          {t.rich('reportPassNote', {
+            b: (chunks) => <span className="font-semibold text-gray-900">{chunks}</span>,
+            link: (chunks) => (
+              <Link href="/pricing" className="font-semibold text-primary-600 hover:text-primary-700">
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
       </div>
 
@@ -192,23 +151,23 @@ export default function Pricing() {
           <div className="relative w-full max-w-md rounded-3xl bg-white p-8 shadow-2xl">
             <button
               onClick={() => setTrialTier(null)}
-              className="absolute right-4 top-4 rounded-lg p-1 text-gray-400 hover:text-gray-600"
+              className="absolute end-4 top-4 rounded-lg p-1 text-gray-400 hover:text-gray-600"
             >
               <X className="h-5 w-5" />
             </button>
             <h3 className="text-xl font-bold text-gray-900">
-              {trialTier === 'Free'
-                ? 'Create your free account'
-                : `Start your 14-day ${trialTier} trial`}
+              {trialTier === 'free'
+                ? t('modalTitleFree')
+                : t('modalTitleTrial', { tier: t(`tiers.${trialTier}.name`) })}
             </h3>
             <p className="mt-1 text-sm text-gray-600">
-              Tell us who you are and we’ll take you straight to your account.
+              {t('modalSubtitle')}
             </p>
             <div className="mt-5 space-y-3">
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
+                placeholder={t('namePlaceholder')}
                 className="w-full rounded-xl border border-gray-300 px-4 py-2.5 text-sm"
               />
               <input
@@ -216,14 +175,14 @@ export default function Pricing() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Work email (required)"
+                placeholder={t('emailPlaceholder')}
                 className="w-full rounded-xl border border-gray-300 px-4 py-2.5 text-sm"
               />
               <input
                 value={org}
                 onChange={(e) => setOrg(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && startTrial()}
-                placeholder="Organization"
+                placeholder={t('orgPlaceholder')}
                 className="w-full rounded-xl border border-gray-300 px-4 py-2.5 text-sm"
               />
               <button
@@ -231,10 +190,10 @@ export default function Pricing() {
                 disabled={busy || !email.includes('@')}
                 className="w-full rounded-xl animated-gradient px-4 py-3 text-sm font-semibold text-white disabled:opacity-50"
               >
-                {busy ? 'One moment…' : 'Start my free trial'}
+                {busy ? t('busy') : t('submit')}
               </button>
               <p className="text-center text-xs text-gray-500">
-                No credit card required. We’ll only use this to set up your trial.
+                {t('disclaimer')}
               </p>
             </div>
           </div>

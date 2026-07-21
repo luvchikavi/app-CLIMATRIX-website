@@ -1,37 +1,60 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Leaf, Mail, Linkedin } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
 
 const footerLinks = {
   product: [
-    { name: 'Features', href: '/features' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Integrations', href: '/features#integrations' },
-    { name: 'Open App', href: 'https://app.climatrix.co' },
+    { key: 'features', href: '/features' },
+    { key: 'pricing', href: '/pricing' },
+    { key: 'integrations', href: '/features#integrations' },
+    { key: 'openApp', href: 'https://app.climatrix.co' },
   ],
   solutions: [
-    { name: 'Corporate Carbon Footprint', href: '/features#ghg' },
-    { name: 'Product Carbon Footprint', href: '/features#pcf' },
-    { name: 'LCA-lite', href: '/features#lca' },
-    { name: 'EPD Generator', href: '/features#epd' },
-    { name: 'Verifier Portal', href: '/features#verifier' },
-    { name: 'CBAM Compliance', href: '/features#cbam' },
-    { name: 'Free CBAM Check', href: 'https://app.climatrix.co/cbam-check' },
-    { name: 'Scenario Planning', href: '/features#scenarios' },
+    { key: 'ccf', href: '/features#ghg' },
+    { key: 'pcf', href: '/features#pcf' },
+    { key: 'lca', href: '/features#lca' },
+    { key: 'epd', href: '/features#epd' },
+    { key: 'verifier', href: '/features#verifier' },
+    { key: 'cbam', href: '/features#cbam' },
+    { key: 'cbamCheck', href: 'https://app.climatrix.co/cbam-check' },
+    { key: 'scenarios', href: '/features#scenarios' },
   ],
   company: [
-    { name: 'How It Works', href: '/#about' },
-    { name: 'Request a Demo', href: '/demo' },
-    { name: 'Contact', href: 'mailto:avi@climatrix.co' },
+    { key: 'howItWorks', href: '/#about' },
+    { key: 'requestDemo', href: '/demo' },
+    { key: 'contact', href: 'mailto:avi@climatrix.co' },
   ],
   legal: [
-    { name: 'Privacy Policy', href: 'https://app.climatrix.co/privacy' },
-    { name: 'Terms of Service', href: 'https://app.climatrix.co/terms' },
-    { name: 'Security', href: 'https://app.climatrix.co/security' },
+    { key: 'privacy', href: 'https://app.climatrix.co/privacy' },
+    { key: 'terms', href: 'https://app.climatrix.co/terms' },
+    { key: 'security', href: 'https://app.climatrix.co/security' },
   ],
-};
+} as const;
+
+type FooterLink = { key: string; href: string };
+
+function FooterLinkItem({ link, label }: { link: FooterLink; label: string }) {
+  const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:');
+  const className = 'text-sm hover:text-accent-300 transition-colors';
+  return (
+    <li>
+      {isExternal ? (
+        <a href={link.href} className={className}>
+          {label}
+        </a>
+      ) : (
+        <Link href={link.href} className={className}>
+          {label}
+        </Link>
+      )}
+    </li>
+  );
+}
 
 export default function Footer() {
+  const t = useTranslations('footer');
+
   return (
     <footer className="bg-secondary-900 text-secondary-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -49,8 +72,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-sm text-secondary-200 mb-6 max-w-xs">
-              The complete carbon accounting platform for modern businesses.
-              Track, report, and reduce your environmental footprint.
+              {t('blurb')}
             </p>
             <div className="flex gap-4">
               <a
@@ -72,56 +94,40 @@ export default function Footer() {
 
           {/* Product links */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Product</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">{t('productHeading')}</h3>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
+                <FooterLinkItem key={link.key} link={link} label={t(`links.${link.key}`)} />
               ))}
             </ul>
           </div>
 
           {/* Solutions links */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Solutions</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">{t('solutionsHeading')}</h3>
             <ul className="space-y-3">
               {footerLinks.solutions.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
+                <FooterLinkItem key={link.key} link={link} label={t(`links.${link.key}`)} />
               ))}
             </ul>
           </div>
 
           {/* Company links */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">{t('companyHeading')}</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
+                <FooterLinkItem key={link.key} link={link} label={t(`links.${link.key}`)} />
               ))}
             </ul>
           </div>
 
           {/* Legal links */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Legal</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">{t('legalHeading')}</h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm hover:text-accent-300 transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
+                <FooterLinkItem key={link.key} link={link} label={t(`links.${link.key}`)} />
               ))}
             </ul>
           </div>
@@ -131,20 +137,20 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-secondary-700">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-secondary-300">
-              &copy; {new Date().getFullYear()} CLIMATRIX. All rights reserved.
+              {t('rights', { year: String(new Date().getFullYear()) })}
             </p>
             <div className="flex items-center gap-6 text-sm text-secondary-300">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent-500"></span>
-                GDPR Compliant
+                {t('gdpr')}
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary-400"></span>
-                Encrypted &amp; Isolated
+                {t('encrypted')}
               </span>
             </div>
             <p className="text-sm text-secondary-300">
-              Questions? <a href="mailto:avi@climatrix.co" className="text-accent-300 hover:underline">avi@climatrix.co</a>
+              {t('questions')} <a href="mailto:avi@climatrix.co" className="text-accent-300 hover:underline">avi@climatrix.co</a>
             </p>
           </div>
         </div>
