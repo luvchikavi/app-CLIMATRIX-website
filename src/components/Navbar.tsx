@@ -24,9 +24,9 @@ function LocaleSwitch({ className = '' }: { className?: string }) {
     <Link
       href={pathname}
       locale={target}
-      className={`px-1 transition-colors ${
+      className={`rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors ${
         locale === target
-          ? 'font-bold text-primary-600'
+          ? 'bg-white text-primary-700 shadow-sm'
           : 'text-gray-500 hover:text-primary-600'
       }`}
     >
@@ -35,9 +35,11 @@ function LocaleSwitch({ className = '' }: { className?: string }) {
   );
 
   return (
-    <span className={`inline-flex items-center text-sm ${className}`} dir="ltr">
+    <span
+      className={`inline-flex items-center rounded-full bg-gray-100 p-0.5 ${className}`}
+      dir="ltr"
+    >
       {item('en', 'EN')}
-      <span className="text-gray-300">|</span>
       {item('he', 'עב')}
     </span>
   );
@@ -90,17 +92,16 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA buttons */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4">
-          <LocaleSwitch />
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-3">
           <a
             href={`${APP_URL}/login`}
-            className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors px-4 py-2"
+            className="whitespace-nowrap text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors px-2 py-1.5"
           >
             {t('login')}
           </a>
           <a
             href={`${APP_URL}/register`}
-            className="rounded-lg gradient-bg px-4 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity"
+            className="whitespace-nowrap rounded-lg gradient-bg px-3.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity"
           >
             {t('startFreeTrial')}
           </a>
@@ -108,11 +109,12 @@ export default function Navbar() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-primary-600 px-4 py-2 text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-primary-600 px-3.5 py-1.5 text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors"
           >
             {t('openApp')}
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
+          <LocaleSwitch className="ms-1" />
         </div>
       </nav>
 
