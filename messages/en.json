@@ -1,0 +1,692 @@
+{
+  "metadata": {
+    "title": "CLIMATRIX - Carbon Accounting Made Simple",
+    "description": "The complete carbon accounting platform for modern businesses. Track GHG emissions, ensure CBAM compliance, and manage your environmental footprint with AI-powered insights.",
+    "ogDescription": "The complete carbon accounting platform for modern businesses."
+  },
+  "nav": {
+    "tagline": "Carbon Intelligence",
+    "howItWorks": "How it works",
+    "capabilities": "Capabilities",
+    "pricing": "Pricing",
+    "requestDemo": "Request Demo",
+    "openMenu": "Open main menu",
+    "closeMenu": "Close menu",
+    "login": "Log in",
+    "startFreeTrial": "Start Free Trial",
+    "openApp": "Open App"
+  },
+  "footer": {
+    "blurb": "The complete carbon accounting platform for modern businesses. Track, report, and reduce your environmental footprint.",
+    "productHeading": "Product",
+    "solutionsHeading": "Solutions",
+    "companyHeading": "Company",
+    "legalHeading": "Legal",
+    "links": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "integrations": "Integrations",
+      "openApp": "Open App",
+      "ccf": "Corporate Carbon Footprint",
+      "pcf": "Product Carbon Footprint",
+      "lca": "LCA-lite",
+      "epd": "EPD Generator",
+      "verifier": "Verifier Portal",
+      "cbam": "CBAM Compliance",
+      "cbamCheck": "Free CBAM Check",
+      "scenarios": "Scenario Planning",
+      "howItWorks": "How It Works",
+      "requestDemo": "Request a Demo",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "security": "Security"
+    },
+    "rights": "© {year} CLIMATRIX. All rights reserved.",
+    "gdpr": "GDPR Compliant",
+    "encrypted": "Encrypted & Isolated",
+    "questions": "Questions?"
+  },
+  "pricingSection": {
+    "heading": "Simple <gradient>pricing</gradient>, serious accounting",
+    "subheading": "Paid plans start with a 14-day free trial — the full engine on your own data, no credit card. Exports unlock when you subscribe.",
+    "mostPopular": "Most popular",
+    "tiers": {
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "blurb": "Explore your footprint — one site, no card, no clock.",
+        "features": [
+          "1 site, 1 user",
+          "Scope 1 & 2 tracking",
+          "Data Hub with guided setup",
+          "On-screen preview reports",
+          "Free CBAM exemption checker"
+        ]
+      },
+      "starter": {
+        "name": "Starter",
+        "price": "$99",
+        "cadence": "/mo",
+        "blurb": "Get a defensible Scope 1 & 2 inventory across your sites.",
+        "features": [
+          "2 sites, 2 users",
+          "Everything in Free",
+          "Template & spreadsheet import",
+          "Report exports (CSV / JSON)",
+          "Email support"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "price": "$297",
+        "cadence": "/mo, billed yearly",
+        "blurb": "Full value-chain accounting with the AI Smart Import.",
+        "features": [
+          "5 sites & 2 users incl. — add packs & seats",
+          "Everything in Starter",
+          "All 15 Scope 3 categories",
+          "AI Smart Import — any file, any layout",
+          "Full exports: ISO 14064-1 · CDP · ESRS · PDF",
+          "CBAM (Beta) + Decarbonization (Beta)"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Let’s talk",
+        "blurb": "Consultants and groups managing many client inventories.",
+        "features": [
+          "Unlimited sites, users & imports",
+          "Custom emission factors",
+          "SSO & advanced security",
+          "Dedicated onboarding & support",
+          "Audit support + advisory"
+        ]
+      }
+    },
+    "enterpriseCta": "Talk to us for a quote",
+    "startFree": "Start free",
+    "tryFree": "Try it free for 14 days",
+    "reportPassNote": "Only report once a year? <b>Report Pass — $1,790</b> opens everything in Professional for 90 days, licensed to one reporting year. <link>See all plans →</link>",
+    "modalTitleFree": "Create your free account",
+    "modalTitleTrial": "Start your 14-day {tier} trial",
+    "modalSubtitle": "Tell us who you are and we’ll take you straight to your account.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Work email (required)",
+    "orgPlaceholder": "Organization",
+    "busy": "One moment…",
+    "submit": "Start my free trial",
+    "disclaimer": "No credit card required. We’ll only use this to set up your trial."
+  },
+  "home": {
+    "badge": "Now live — AI-powered carbon accounting",
+    "heroTitle1": "Drop your messy data.",
+    "heroTitle2": "Get an audit-ready inventory.",
+    "heroSubtitle": "Track GHG emissions, ensure CBAM compliance, and manage your environmental footprint with the most advanced carbon accounting platform.",
+    "ctaTrial": "Try it free for 14 days",
+    "ctaCbam": "Free CBAM check",
+    "ctaDemo": "Request Demo",
+    "trialNote": "14-day free trial",
+    "noCard": "No credit card required",
+    "stats": {
+      "0": { "value": "All 15", "label": "Scope 3 Categories" },
+      "1": { "value": "Minutes", "label": "From File to Footprint" },
+      "2": { "value": "20+", "label": "CBAM Product Groups" },
+      "3": { "value": "ISO 14064", "label": "Audit-Ready Methodology" }
+    },
+    "screenshots": {
+      "0": {
+        "title": "The Data Hub",
+        "description": "One living map of your inventory — what’s relevant, what’s arrived, what’s still missing, and who to chase"
+      },
+      "1": {
+        "title": "Dashboard Overview",
+        "description": "Your footprint per year, per site, or all together — with drill-downs behind every number"
+      },
+      "2": {
+        "title": "Activity Ledger",
+        "description": "Every committed emission line, with its factor, source and data-quality grade"
+      },
+      "3": {
+        "title": "Reports & Audit",
+        "description": "Scope summaries, GHG inventory, data quality and audit package — export-ready"
+      }
+    },
+    "try": {
+      "fileTitle": "Try it on your own file",
+      "fileBody": "Drop a messy spreadsheet into the live demo and watch it become calculated emissions — no signup, no sales call.",
+      "fileCta": "Open the live demo",
+      "cbamTitle": "Exporting to the EU? Check your CBAM exposure",
+      "cbamBody": "Answer a few questions and know in about two minutes whether the Carbon Border Adjustment Mechanism applies to your goods — free.",
+      "cbamCta": "Run the free CBAM check"
+    },
+    "about": {
+      "heading": "How <gradient>CLIMATRIX</gradient> works",
+      "p1": "The hard part of carbon accounting isn't the math — it's gathering messy data from finance, fleet, facilities and suppliers, and making it defensible. CLIMATRIX is built around a Data Hub that does exactly that.",
+      "p2": "Three steps: declare your reality, drop your files, review and report — with every number carrying its factor, formula and quality grade.",
+      "brandSub": "Technology",
+      "points": {
+        "0": {
+          "title": "1 · Declare your reality",
+          "description": "Country, sites, currency, and which GHG categories apply to you — a two-minute setup that becomes your reporting boundary."
+        },
+        "1": {
+          "title": "2 · Drop your files, any format",
+          "description": "Utility bills, fuel cards, travel exports, ERP dumps. The AI reads them through your profile and maps every line — in seconds, not weeks."
+        },
+        "2": {
+          "title": "3 · Review, close gaps, report",
+          "description": "The Data Hub shows what arrived, its quality, and what is missing. Answer the few real questions, commit, and export a defensible inventory."
+        },
+        "3": {
+          "title": "Built on the standards",
+          "description": "GHG Protocol, ISO 14064, CSRD — audit-ready methodology built in."
+        }
+      }
+    },
+    "screens": {
+      "heading": "See <gradient>CLIMATRIX</gradient> In Action",
+      "subheading": "Powerful features that make carbon management effortless."
+    },
+    "featuresSection": {
+      "heading": "What's inside <gradient>the platform</gradient>",
+      "subheading": "From emissions tracking to compliance reporting, all tools in one platform.",
+      "items": {
+        "0": {
+          "name": "The Data Hub",
+          "description": "One living map of your inventory: declare which GHG categories are relevant, see what data arrived, what quality it has, and exactly what is still missing — with a chase list of who to ask."
+        },
+        "1": {
+          "name": "AI Smart Import",
+          "description": "Drop any spreadsheet — fuel cards, utility bills, ERP spend dumps. The parser knows your organization before it reads a row and maps every line to the right scope and category."
+        },
+        "2": {
+          "name": "Honest data quality",
+          "description": "Every line lands on a ladder: measured / calculated / estimated / gap. Estimates never masquerade as measured data — so a verifier can trust the number."
+        },
+        "3": {
+          "name": "Reports & audit trail",
+          "description": "Full Scope 1, 2 and 3 reporting with the factor, source and formula behind every figure — plus an audit package and verification workflow."
+        },
+        "4": {
+          "name": "Decarbonization planning",
+          "description": "Model reduction scenarios and plan your path to net-zero on top of real data.",
+          "badge": "Beta"
+        },
+        "5": {
+          "name": "CBAM Compliance",
+          "description": "EU Carbon Border Adjustment Mechanism support: quarterly reports and certificate costs — plus a free exemption checker anyone can run, no signup.",
+          "badge": "Beta"
+        },
+        "6": {
+          "name": "Product Carbon Footprint",
+          "description": "Model any product’s BOM and get a cradle-to-gate PCF per ISO 14067 — exported as PACT v3 JSON your customers can ingest.",
+          "badge": "Beta"
+        },
+        "7": {
+          "name": "LCA-lite",
+          "description": "Screening-grade life-cycle assessment on your PCF models: 16 EF 3.1 impact categories across the EN 15804 modules (A1–D), with honest per-indicator data-coverage disclosure.",
+          "badge": "Beta"
+        },
+        "8": {
+          "name": "EPD Preparation",
+          "description": "ISO 14025 / EN 15804+A2 declaration preparation on a verified footprint — EN 15804 PDF plus ILCD+EPD digital dataset. Your program operator publishes it; we prepare it.",
+          "badge": "Beta"
+        },
+        "9": {
+          "name": "Verifier Portal",
+          "description": "Your external auditor gets a read-only portal with full provenance and audit log — verification without email ping-pong."
+        }
+      }
+    },
+    "security": {
+      "heading": "<gradient>Enterprise-Grade</gradient> Security",
+      "subheading": "Your data security is our top priority. Built with the highest security standards and compliance frameworks.",
+      "items": {
+        "0": "Encrypted at Rest & in Transit",
+        "1": "GDPR Compliant",
+        "2": "Comprehensive Audit Logging",
+        "3": "Multi-tenant Data Isolation",
+        "4": "GHG Protocol Aligned"
+      },
+      "cardTitle": "Enterprise Security",
+      "cardBody": "Your data is encrypted and protected 24/7"
+    },
+    "cta": {
+      "heading": "Ready to Start Your <gradient>Sustainability Journey</gradient>?",
+      "subheading": "Join leading companies using CLIMATRIX to track, report, and reduce their carbon footprint.",
+      "trial": "Try it free for 14 days",
+      "demo": "Request Demo"
+    }
+  },
+  "features": {
+    "heroTitle1": "Powerful Features for",
+    "heroTitle2": "Complete Carbon Management",
+    "heroSubtitle": "Everything you need to track, report, and reduce your environmental footprint in one comprehensive platform.",
+    "chain": {
+      "heading1": "One data spine, four tools:",
+      "heading2": "from company footprint to published product declaration",
+      "subheading": "Each tool builds on the one before it — the corporate inventory feeds product footprints, product footprints feed screening LCA, and a verified footprint becomes an EPD your program operator publishes. No data re-entry between steps.",
+      "status": {
+        "live": "Live",
+        "beta": "Beta"
+      },
+      "tools": {
+        "ghg": {
+          "name": "Corporate Carbon Footprint",
+          "blurb": "Your full organizational GHG inventory — Scopes 1, 2 & 3."
+        },
+        "pcf": {
+          "name": "Product Carbon Footprint",
+          "blurb": "Cradle-to-gate footprint per product, exchanged in PACT v3."
+        },
+        "lca": {
+          "name": "LCA-lite",
+          "blurb": "Screening-grade impacts beyond carbon — 16 EF 3.1 categories."
+        },
+        "epd": {
+          "name": "EPD Generator",
+          "blurb": "Verification-ready EN 15804+A2 declaration preparation."
+        }
+      }
+    },
+    "main": {
+      "ghg": {
+        "name": "Corporate Carbon Footprint (CCF)",
+        "tagline": "Your full GHG inventory — GHG Protocol & ISO 14064-1",
+        "description": "Your complete organizational inventory across Scopes 1, 2 and 3 — calculated, screened, and ready for the reports your stakeholders actually ask for.",
+        "items": [
+          "Scopes 1, 2 & 3 — all 15 Scope 3 categories with a screening matrix for completeness",
+          "Consolidation approach and reporting boundary declared up front",
+          "ISO 14064-1 report plus VSME, ESRS E1 and CDP exports",
+          "Base-year & recalculation policy disclosure",
+          "Hands off to the read-only Verifier Portal for external verification",
+          "Per-row provenance and data-quality tiers behind every figure",
+          "AI-powered data extraction from invoices",
+          "Real-time dashboard and analytics"
+        ]
+      },
+      "pcf": {
+        "name": "Product Carbon Footprint (PCF)",
+        "tagline": "Cradle-to-gate footprints per product, exchanged in PACT v3",
+        "description": "Model your products’ bills of materials and calculate cradle-to-gate footprints your customers’ systems can actually consume.",
+        "badge": "Beta",
+        "items": [
+          "ISO 14067 cradle-to-gate footprint per declared unit",
+          "BOM modeling grounded in the same audited factor library",
+          "PACT v3 Data Exchange JSON your customers’ systems ingest",
+          "Supplier PCF ingestion with primary-data-share tracking",
+          "Per-line derivation stories — how each number was calculated",
+          "CBAM synergy — shared CN product codes"
+        ]
+      },
+      "lca": {
+        "name": "LCA-lite",
+        "tagline": "Screening-grade life-cycle impacts beyond carbon",
+        "description": "A screening-grade life-cycle assessment computed straight on your PCF models — the EF 3.1 impact method across the EN 15804 lifecycle, with honest disclosure of what the data actually covers.",
+        "badge": "Beta",
+        "items": [
+          "EF 3.1 impact method — 16 impact categories beyond climate",
+          "Results matrix: every indicator × EN 15804 lifecycle modules (A1–D)",
+          "Built on your PCF models — no data re-entry",
+          "Curated free dataset library to fill impact data",
+          "Honest per-indicator data-coverage disclosure — you see exactly what each result rests on",
+          "Screening-grade by design — a fast, transparent first pass, not a critical-review LCA"
+        ],
+        "placeholderTitle": "Live today (Beta)",
+        "placeholder": "Screenshot coming — LCA-lite is live in the app today, on the PCF module."
+      },
+      "epd": {
+        "name": "EPD Generator",
+        "tagline": "Verification-ready EPDs — published by your program operator",
+        "description": "Turn a verified footprint into an ISO 14025 / EN 15804+A2 declaration package. We prepare the EPD end-to-end; your program operator reviews and publishes it — we do not issue EPDs ourselves.",
+        "badge": "Beta",
+        "items": [
+          "Pins a verified footprint snapshot — the declaration never drifts from its data",
+          "EN 15804 core + additional indicator results tables",
+          "EN 15804-structured PDF plus ILCD+EPD digital dataset (machine-readable EPD)",
+          "Third-party verification workflow through the token-gated verifier portal",
+          "5-year validity tracking",
+          "Program-operator registration tracking — publication stays with your operator"
+        ],
+        "placeholderTitle": "In Beta",
+        "placeholder": "Being built right now — declaration preparation on top of your verified PCF + LCA results."
+      },
+      "verifier": {
+        "name": "Verifier Portal",
+        "tagline": "Give your auditor a window, not a spreadsheet",
+        "description": "External verifiers get read-only access to the inventory they’re verifying — with the provenance behind every number, and none of the email ping-pong.",
+        "items": [
+          "Read-only, token-gated access for external verifiers",
+          "Full inventory with per-row provenance",
+          "Audit log of every change and every visit",
+          "Revocable, period-scoped — no verifier account needed",
+          "Built for ISO 14064-3 verification (remote allowed per ISO 14064-5)"
+        ],
+        "placeholderTitle": "Live today",
+        "placeholder": "Screenshot coming — the portal is live in the app today."
+      },
+      "cbam": {
+        "name": "CBAM Compliance",
+        "tagline": "EU Carbon Border Adjustment Made Easy",
+        "description": "Stay compliant with EU CBAM regulations with automated reporting and certificate management.",
+        "badge": "Beta",
+        "items": [
+          "20+ CBAM product categories supported",
+          "Quarterly reporting automation",
+          "Certificate cost calculation",
+          "XML report generation for EU submission",
+          "Installation and import tracking",
+          "Country-specific emission factors"
+        ]
+      },
+      "scenarios": {
+        "name": "Scenario Planning",
+        "tagline": "Plan Your Path to Net-Zero",
+        "description": "Model different reduction scenarios and initiatives to achieve your sustainability goals.",
+        "badge": "Beta",
+        "items": [
+          "What-if scenario modeling",
+          "Initiative impact projection",
+          "Cost-benefit analysis",
+          "Timeline-based planning",
+          "Progress tracking and reporting",
+          "Science-based target alignment"
+        ]
+      }
+    },
+    "scope3": {
+      "heading1": "All 15 Scope 3 Categories",
+      "heading2": "Fully Supported",
+      "subheading": "Comprehensive coverage of the complete GHG Protocol Scope 3 standard.",
+      "categories": {
+        "1": "Purchased Goods & Services",
+        "2": "Capital Goods",
+        "3": "Fuel & Energy Activities",
+        "4": "Upstream Transportation",
+        "5": "Waste Generated",
+        "6": "Business Travel",
+        "7": "Employee Commuting",
+        "8": "Upstream Leased Assets",
+        "9": "Downstream Transportation",
+        "10": "Processing of Sold Products",
+        "11": "Use of Sold Products",
+        "12": "End-of-Life Treatment",
+        "13": "Downstream Leased Assets",
+        "14": "Franchises",
+        "15": "Investments"
+      }
+    },
+    "integrations": {
+      "heading": "Seamless <gradient>Integrations</gradient>",
+      "subheading": "Connect with your existing tools and data sources for automated data collection.",
+      "items": {
+        "0": {
+          "title": "Data Import",
+          "description": "Import data from Excel, CSV, or connect via API"
+        },
+        "1": {
+          "title": "AI Extraction",
+          "description": "Automatically extract data from invoices and documents"
+        },
+        "2": {
+          "title": "Real-time Sync",
+          "description": "Keep your emissions data up-to-date automatically"
+        }
+      }
+    },
+    "cta": {
+      "heading": "Ready to See These Features in Action?",
+      "subheading": "Experience the full power of CLIMATRIX carbon management platform.",
+      "openApp": "Open App",
+      "requestDemo": "Request Demo"
+    }
+  },
+  "pricingPage": {
+    "heroTitle1": "Simple, Transparent",
+    "heroTitle2": "Pricing",
+    "heroSubtitle": "Start with a 14-day free trial. No credit card required. Choose the plan that fits your needs.",
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "save": "Save 15%",
+    "mostPopular": "Most Popular",
+    "perMonth": "/month",
+    "billedAnnually": "Billed annually",
+    "billedAnnuallyLicense": "Billed annually · annual license",
+    "customPricing": "Custom Pricing",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Perfect for small businesses starting their sustainability journey",
+        "cta": "Start Free Trial",
+        "features": [
+          { "name": "2 users", "included": true },
+          { "name": "2 sites", "included": true },
+          { "name": "Scope 1 & 2 tracking", "included": true },
+          { "name": "Report exports (CSV / JSON)", "included": true },
+          { "name": "Email support", "included": true },
+          { "name": "Scope 3 tracking", "included": false },
+          { "name": "AI Smart Import", "included": false },
+          { "name": "CBAM compliance", "included": false },
+          { "name": "API access", "included": false }
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "description": "For growing companies with comprehensive carbon management needs",
+        "cta": "Start Free Trial",
+        "features": [
+          { "name": "2 users included — add seats anytime", "included": true },
+          { "name": "5 sites included — add site packs anytime", "included": true },
+          { "name": "Scope 1, 2 & 3 — all 15 categories", "included": true },
+          { "name": "AI Smart Import — any file, any layout", "included": true },
+          { "name": "Full exports: ISO 14064-1 · CDP · ESRS · PDF", "included": true },
+          { "name": "CBAM compliance (Beta)", "included": true },
+          { "name": "Decarbonization & scenario planning (Beta)", "included": true },
+          { "name": "Priority support", "included": true },
+          { "name": "API access", "included": false }
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Full-featured solution for large organizations with complex needs",
+        "cta": "Contact Sales",
+        "features": [
+          { "name": "Unlimited users & sites", "included": true },
+          { "name": "All emission scopes", "included": true },
+          { "name": "Custom reporting", "included": true },
+          { "name": "Unlimited AI Smart Import", "included": true },
+          { "name": "Dedicated support", "included": true },
+          { "name": "CBAM compliance (Beta)", "included": true },
+          { "name": "Scenario planning (Beta)", "included": true },
+          { "name": "PCAF · LCA · EPD as they ship", "included": true },
+          { "name": "Full API access", "included": true },
+          { "name": "SSO & SAML", "included": true },
+          { "name": "Custom integrations", "included": true },
+          { "name": "Audit support + advisory", "included": true }
+        ]
+      }
+    },
+    "freeNote": "Just exploring? The <b>Free plan</b> — 1 user, 1 site, on-screen preview reports and the CBAM exemption checker — is yours at signup. No card, no clock.",
+    "reportPass": {
+      "title": "Report Pass",
+      "oneTime": "One-time",
+      "body": "Only report once a year? Skip the subscription. Everything in Professional for 90 days, licensed to one reporting year — and your data stays afterwards.",
+      "items": [
+        "All exports for that year — ISO 14064-1, CDP, ESRS, PDF",
+        "Full AI Smart Import, Scope 1–3",
+        "CBAM & decarbonization tools",
+        "Data & audit trail preserved after the window"
+      ],
+      "price": "$1,790",
+      "per": "per reporting year",
+      "cta": "Get a Report Pass"
+    },
+    "capacityNote": "Need more room on Professional? <b>Site packs (+5 sites) $490/yr</b> · <b>Extra seats $190/yr</b>.",
+    "addons": {
+      "heading": "Add-on modules",
+      "tag": "On top of Professional",
+      "body": "The product-level tools — from product footprint to a publish-ready declaration — are add-on modules on your Professional subscription, priced per product and per EPD.",
+      "modules": {
+        "pcf": {
+          "name": "Product Carbon Footprint (PCF)",
+          "badge": "Beta",
+          "description": "ISO 14067 cradle-to-gate footprints with BOM modeling and PACT v3 exchange — priced per product."
+        },
+        "lca": {
+          "name": "LCA-lite",
+          "badge": "Beta",
+          "description": "Screening-grade life-cycle assessment on your PCF models — 16 EF 3.1 impact categories across the EN 15804 modules. Priced per product."
+        },
+        "epd": {
+          "name": "EPD Preparation",
+          "badge": "Beta",
+          "description": "Verification-ready ISO 14025 / EN 15804+A2 declaration preparation, published by your program operator — priced per EPD."
+        }
+      },
+      "note": "Pricing depends on how many products and declarations you need — tell us what you make and we'll quote it straight.",
+      "cta": "Talk to us"
+    },
+    "compare": {
+      "heading": "Compare Plans",
+      "subheading": "Detailed feature comparison across all plans",
+      "colFeature": "Feature",
+      "colStarter": "Starter",
+      "colPro": "Professional",
+      "colEnterprise": "Enterprise",
+      "rows": [
+        { "feature": "Users", "starter": "2", "pro": "2 incl. (+seats)", "enterprise": "Unlimited" },
+        { "feature": "Sites", "starter": "2", "pro": "5 incl. (+packs)", "enterprise": "Unlimited" },
+        { "feature": "Scope 1 & 2", "starter": true, "pro": true, "enterprise": true },
+        { "feature": "Scope 3 (All 15 categories)", "starter": false, "pro": true, "enterprise": true },
+        { "feature": "AI Smart Import", "starter": false, "pro": "100 files/mo", "enterprise": "Unlimited" },
+        { "feature": "Full exports (ISO 14064-1 · CDP · ESRS · PDF)", "starter": false, "pro": true, "enterprise": true },
+        { "feature": "CBAM Compliance (Beta)", "starter": false, "pro": true, "enterprise": true },
+        { "feature": "Scenario Planning (Beta)", "starter": false, "pro": true, "enterprise": true },
+        { "feature": "API Access", "starter": false, "pro": false, "enterprise": true },
+        { "feature": "SSO / SAML", "starter": false, "pro": false, "enterprise": true },
+        { "feature": "Custom Integrations", "starter": false, "pro": false, "enterprise": true },
+        { "feature": "Support", "starter": "Email", "pro": "Priority", "enterprise": "Dedicated" }
+      ]
+    },
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "subheading": "Have questions? We have answers.",
+      "items": [
+        {
+          "question": "How does the 14-day free trial work?",
+          "answer": "For 14 days you run the full parser and calculation engine on your own data — no credit card required. Report exports and some advanced views unlock when you subscribe. At the end of the trial your account is paused, but your data is preserved."
+        },
+        {
+          "question": "Which modules are included?",
+          "answer": "Every plan includes the full corporate carbon footprint (CCF). CBAM ships in Beta on Professional, and the verifier portal is included wherever report exports are. The product-level tools — PCF, LCA-lite and EPD preparation — are add-on modules on top of Professional."
+        },
+        {
+          "question": "How do the add-on modules (PCF, LCA-lite, EPD) work?",
+          "answer": "They sit on top of a Professional subscription and are priced by what you actually declare: PCF and LCA-lite per product, EPD preparation per declaration. All three are in Beta today. LCA-lite is screening-grade — a fast, transparent first pass, not a critical-review LCA — and for EPDs we prepare a verification-ready declaration package that your program operator reviews and publishes; we don't issue EPDs ourselves. Email avi@climatrix.co for a quote."
+        },
+        {
+          "question": "Can I switch plans later?",
+          "answer": "Yes, you can upgrade or downgrade your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, changes take effect at the next billing cycle."
+        },
+        {
+          "question": "We only report once a year — do we need a subscription?",
+          "answer": "No. The Report Pass is built for exactly that: a one-time $1,790 purchase that opens everything in Professional for 90 days, licensed to the reporting year you're working on. Your data and audit trail stay afterwards, and auditors can be given access again with a new pass or a subscription."
+        },
+        {
+          "question": "What if we outgrow the included sites or seats?",
+          "answer": "Professional includes 5 sites and 2 users. Add capacity anytime without changing plans: site packs add 5 sites for $490/year, and extra seats are $190/year each."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit cards (Visa, MasterCard, American Express) and bank transfers for annual enterprise contracts."
+        },
+        {
+          "question": "Is my data secure?",
+          "answer": "Yes. All data is encrypted at rest and in transit, every organization's data is strictly isolated, and the platform keeps a comprehensive audit trail of who changed what."
+        },
+        {
+          "question": "Do you offer discounts for non-profits?",
+          "answer": "Yes, we offer special pricing for non-profit organizations, educational institutions, and startups. Contact us to learn more."
+        },
+        {
+          "question": "What support do you provide?",
+          "answer": "All plans include email support. Professional plans include priority support with faster response times. Enterprise plans include dedicated account management and phone support."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Still Have Questions?",
+      "subheading": "Our team is here to help you find the perfect plan for your needs.",
+      "trial": "Start Free Trial",
+      "contact": "Contact Sales"
+    }
+  },
+  "demo": {
+    "heroTitle1": "See CLIMATRIX",
+    "heroTitle2": "in Action",
+    "heroSubtitle": "Schedule a personalized demo with our team to see how CLIMATRIX can help you track, report, and reduce your carbon footprint.",
+    "whatYouGet": "What you'll get:",
+    "benefits": [
+      "Personalized walkthrough of all features",
+      "See how CLIMATRIX fits your specific needs",
+      "Get answers to your questions in real-time",
+      "Learn about implementation and onboarding",
+      "Discuss pricing and volume discounts"
+    ],
+    "duration": "Duration",
+    "durationValue": "30 minutes",
+    "response": "Response Time",
+    "responseValue": "Within 24 hours",
+    "reachOut": "Or reach out directly:",
+    "form": {
+      "errorAlert": "Something went wrong sending your request — please email us directly at avi@climatrix.co.",
+      "thanksTitle": "Thank You!",
+      "thanksBody": "We've received your request and will be in touch within 24 hours to schedule your personalized demo.",
+      "startTrialNow": "Start Free Trial Now",
+      "title": "Request a Demo",
+      "firstName": "First Name *",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name *",
+      "lastNamePlaceholder": "Doe",
+      "email": "Work Email *",
+      "emailPlaceholder": "john@company.com",
+      "company": "Company *",
+      "companyPlaceholder": "ACME Inc.",
+      "companySize": "Company Size *",
+      "selectSize": "Select size",
+      "sizes": {
+        "0": "1-10 employees",
+        "1": "11-50 employees",
+        "2": "51-200 employees",
+        "3": "201-500 employees",
+        "4": "500+ employees"
+      },
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+1 (555) 123-4567",
+      "message": "What are you looking to achieve? (optional)",
+      "messagePlaceholder": "Tell us about your carbon accounting needs...",
+      "submitting": "Submitting...",
+      "submit": "Request Demo",
+      "privacy": "By submitting this form, you agree to our <link>Privacy Policy</link>."
+    },
+    "why": {
+      "heading": "Why Companies Choose CLIMATRIX",
+      "subheading": "Join leading organizations that trust CLIMATRIX for their carbon accounting needs.",
+      "items": {
+        "0": {
+          "title": "Expert Support",
+          "description": "Our team of sustainability experts is here to help you every step of the way."
+        },
+        "1": {
+          "title": "Enterprise Ready",
+          "description": "Encrypted at rest and in transit, strict multi-tenant isolation, and GDPR compliance — built in from day one."
+        },
+        "2": {
+          "title": "Proven Results",
+          "description": "From messy spreadsheets to an audit-ready inventory in days, not months — with every number traceable."
+        }
+      }
+    }
+  }
+}

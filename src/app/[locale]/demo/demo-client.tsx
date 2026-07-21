@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   CheckCircle2,
   Mail,
-  Phone,
-  MapPin,
   Send,
   Clock,
   Users,
@@ -14,14 +13,8 @@ import {
   Calendar,
 } from 'lucide-react';
 
-const benefits = [
-  'Personalized walkthrough of all features',
-  'See how CLIMATRIX fits your specific needs',
-  'Get answers to your questions in real-time',
-  'Learn about implementation and onboarding',
-  'Discuss pricing and volume discounts',
-];
-
+// Submitted values stay in English so the CRM data is locale-independent;
+// the visible labels come from the message catalogs (demo.form.sizes).
 const companySizes = [
   '1-10 employees',
   '11-50 employees',
@@ -30,7 +23,10 @@ const companySizes = [
   '500+ employees',
 ];
 
-export default function DemoPage() {
+const whyIcons = [Users, Building, CheckCircle2];
+
+export default function DemoClient() {
+  const t = useTranslations('demo');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -57,9 +53,7 @@ export default function DemoPage() {
       setSubmitted(true);
     } catch {
       // Never dead-end a prospect: surface the direct channel.
-      alert(
-        'Something went wrong sending your request — please email us directly at avi@climatrix.co.'
-      );
+      alert(t('form.errorAlert'));
     } finally {
       setLoading(false);
     }
@@ -87,20 +81,19 @@ export default function DemoPage() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                See CLIMATRIX
-                <span className="block gradient-text">in Action</span>
+                {t('heroTitle1')}
+                <span className="block gradient-text">{t('heroTitle2')}</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8">
-                Schedule a personalized demo with our team to see how CLIMATRIX
-                can help you track, report, and reduce your carbon footprint.
+                {t('heroSubtitle')}
               </p>
 
               <div className="mb-8">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  What you&apos;ll get:
+                  {t('whatYouGet')}
                 </h3>
                 <ul className="space-y-3">
-                  {benefits.map((benefit) => (
+                  {(t.raw('benefits') as string[]).map((benefit) => (
                     <li key={benefit} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{benefit}</span>
@@ -115,8 +108,8 @@ export default function DemoPage() {
                     <Clock className="w-6 h-6 text-primary-600" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Duration</p>
-                    <p className="font-semibold text-gray-900">30 minutes</p>
+                    <p className="text-sm text-gray-500">{t('duration')}</p>
+                    <p className="font-semibold text-gray-900">{t('durationValue')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -124,8 +117,8 @@ export default function DemoPage() {
                     <Calendar className="w-6 h-6 text-secondary-600" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Response Time</p>
-                    <p className="font-semibold text-gray-900">Within 24 hours</p>
+                    <p className="text-sm text-gray-500">{t('response')}</p>
+                    <p className="font-semibold text-gray-900">{t('responseValue')}</p>
                   </div>
                 </div>
               </div>
@@ -133,7 +126,7 @@ export default function DemoPage() {
               {/* Contact Info */}
               <div className="mt-8 space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900">
-                  Or reach out directly:
+                  {t('reachOut')}
                 </h3>
                 <a
                   href="mailto:avi@climatrix.co"
@@ -158,29 +151,28 @@ export default function DemoPage() {
                     <CheckCircle2 className="w-8 h-8 text-accent-600" />
                   </div>
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                    Thank You!
+                    {t('form.thanksTitle')}
                   </h2>
                   <p className="text-gray-600 mb-6">
-                    We&apos;ve received your request and will be in touch within 24 hours
-                    to schedule your personalized demo.
+                    {t('form.thanksBody')}
                   </p>
                   <a
                     href="https://app.climatrix.co/register"
                     className="inline-flex items-center gap-2 gradient-bg text-white font-semibold px-6 py-3 rounded-xl hover:opacity-90 transition-all"
                   >
-                    Start Free Trial Now
+                    {t('form.startTrialNow')}
                   </a>
                 </div>
               ) : (
                 <>
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                    Request a Demo
+                    {t('form.title')}
                   </h2>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1.5">
-                          First Name *
+                          {t('form.firstName')}
                         </label>
                         <input
                           type="text"
@@ -190,12 +182,12 @@ export default function DemoPage() {
                           value={formData.firstName}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                          placeholder="John"
+                          placeholder={t('form.firstNamePlaceholder')}
                         />
                       </div>
                       <div>
                         <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Last Name *
+                          {t('form.lastName')}
                         </label>
                         <input
                           type="text"
@@ -205,14 +197,14 @@ export default function DemoPage() {
                           value={formData.lastName}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                          placeholder="Doe"
+                          placeholder={t('form.lastNamePlaceholder')}
                         />
                       </div>
                     </div>
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        Work Email *
+                        {t('form.email')}
                       </label>
                       <input
                         type="email"
@@ -222,14 +214,14 @@ export default function DemoPage() {
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                        placeholder="john@company.com"
+                        placeholder={t('form.emailPlaceholder')}
                       />
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Company *
+                          {t('form.company')}
                         </label>
                         <input
                           type="text"
@@ -239,12 +231,12 @@ export default function DemoPage() {
                           value={formData.company}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                          placeholder="ACME Inc."
+                          placeholder={t('form.companyPlaceholder')}
                         />
                       </div>
                       <div>
                         <label htmlFor="companySize" className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Company Size *
+                          {t('form.companySize')}
                         </label>
                         <select
                           id="companySize"
@@ -254,10 +246,10 @@ export default function DemoPage() {
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all bg-white"
                         >
-                          <option value="">Select size</option>
-                          {companySizes.map((size) => (
+                          <option value="">{t('form.selectSize')}</option>
+                          {companySizes.map((size, index) => (
                             <option key={size} value={size}>
-                              {size}
+                              {t(`form.sizes.${index}`)}
                             </option>
                           ))}
                         </select>
@@ -266,7 +258,7 @@ export default function DemoPage() {
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        Phone (optional)
+                        {t('form.phone')}
                       </label>
                       <input
                         type="tel"
@@ -275,13 +267,13 @@ export default function DemoPage() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder={t('form.phonePlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
-                        What are you looking to achieve? (optional)
+                        {t('form.message')}
                       </label>
                       <textarea
                         id="message"
@@ -290,7 +282,7 @@ export default function DemoPage() {
                         value={formData.message}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
-                        placeholder="Tell us about your carbon accounting needs..."
+                        placeholder={t('form.messagePlaceholder')}
                       />
                     </div>
 
@@ -302,22 +294,24 @@ export default function DemoPage() {
                       {loading ? (
                         <>
                           <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Submitting...
+                          {t('form.submitting')}
                         </>
                       ) : (
                         <>
-                          <Send className="w-5 h-5" />
-                          Request Demo
+                          <Send className="w-5 h-5 rtl:-scale-x-100" />
+                          {t('form.submit')}
                         </>
                       )}
                     </button>
 
                     <p className="text-xs text-center text-gray-500">
-                      By submitting this form, you agree to our{' '}
-                      <a href="/privacy" className="text-primary-600 hover:underline">
-                        Privacy Policy
-                      </a>
-                      .
+                      {t.rich('form.privacy', {
+                        link: (chunks) => (
+                          <a href="/privacy" className="text-primary-600 hover:underline">
+                            {chunks}
+                          </a>
+                        ),
+                      })}
                     </p>
                   </form>
                 </>
@@ -332,33 +326,17 @@ export default function DemoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Companies Choose CLIMATRIX
+              {t('why.heading')}
             </h2>
             <p className="text-lg text-gray-600">
-              Join leading organizations that trust CLIMATRIX for their carbon accounting needs.
+              {t('why.subheading')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: 'Expert Support',
-                description: 'Our team of sustainability experts is here to help you every step of the way.',
-              },
-              {
-                icon: Building,
-                title: 'Enterprise Ready',
-                description: 'Encrypted at rest and in transit, strict multi-tenant isolation, and GDPR compliance — built in from day one.',
-              },
-              {
-                icon: CheckCircle2,
-                title: 'Proven Results',
-                description: 'From messy spreadsheets to an audit-ready inventory in days, not months — with every number traceable.',
-              },
-            ].map((item, index) => (
+            {whyIcons.map((ItemIcon, index) => (
               <motion.div
-                key={item.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -366,13 +344,13 @@ export default function DemoPage() {
                 className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center"
               >
                 <div className="inline-flex p-4 rounded-xl bg-primary-100 mb-4">
-                  <item.icon className="w-8 h-8 text-primary-600" />
+                  <ItemIcon className="w-8 h-8 text-primary-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {item.title}
+                  {t(`why.items.${index}.title`)}
                 </h3>
                 <p className="text-gray-600">
-                  {item.description}
+                  {t(`why.items.${index}.description`)}
                 </p>
               </motion.div>
             ))}

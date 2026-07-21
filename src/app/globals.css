@@ -20,7 +20,7 @@ body {
     rgb(244, 247, 245) 100%);
   /* no background-attachment: fixed — it forces a full-viewport repaint on
      every scroll frame and is the classic mobile scroll-jank trigger */
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), var(--font-hebrew), system-ui, sans-serif;
   min-height: 100vh;
 }
 

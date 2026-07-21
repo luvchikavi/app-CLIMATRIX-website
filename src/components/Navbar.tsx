@@ -1,22 +1,51 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 /* eslint-disable @next/next/no-img-element */
 import { Menu, X, Leaf, ExternalLink } from 'lucide-react';
+import { Link, usePathname } from '@/i18n/navigation';
 
 const navigation = [
-  { name: 'How it works', href: '/#about' },
-  { name: 'Capabilities', href: '/#features' },
-  { name: 'Pricing', href: '/#pricing' },
-  { name: 'Request Demo', href: '/demo' },
-];
+  { key: 'howItWorks', href: '/#about' },
+  { key: 'capabilities', href: '/#features' },
+  { key: 'pricing', href: '/#pricing' },
+  { key: 'requestDemo', href: '/demo' },
+] as const;
 
 // Demo app URL
 const APP_URL = 'https://app.climatrix.co';
 
+function LocaleSwitch({ className = '' }: { className?: string }) {
+  const locale = useLocale();
+  const pathname = usePathname();
+
+  const item = (target: 'en' | 'he', label: string) => (
+    <Link
+      href={pathname}
+      locale={target}
+      className={`px-1 transition-colors ${
+        locale === target
+          ? 'font-bold text-primary-600'
+          : 'text-gray-500 hover:text-primary-600'
+      }`}
+    >
+      {label}
+    </Link>
+  );
+
+  return (
+    <span className={`inline-flex items-center text-sm ${className}`} dir="ltr">
+      {item('en', 'EN')}
+      <span className="text-gray-300">|</span>
+      {item('he', 'עב')}
+    </span>
+  );
+}
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const t = useTranslations('nav');
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
@@ -29,19 +58,20 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold text-gray-900 leading-none">CLIMATRIX</span>
-              <p className="text-[9px] text-gray-500 uppercase tracking-[0.2em]">Carbon Intelligence</p>
+              <p className="text-[9px] text-gray-500 uppercase tracking-[0.2em]">{t('tagline')}</p>
             </div>
           </Link>
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden items-center gap-4">
+          <LocaleSwitch />
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">{t('openMenu')}</span>
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
@@ -50,28 +80,29 @@ export default function Navbar() {
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => (
             <Link
-              key={item.name}
+              key={item.key}
               href={item.href}
               className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
             >
-              {item.name}
+              {t(item.key)}
             </Link>
           ))}
         </div>
 
         {/* Desktop CTA buttons */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4">
+          <LocaleSwitch />
           <a
             href={`${APP_URL}/login`}
             className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors px-4 py-2"
           >
-            Log in
+            {t('login')}
           </a>
           <a
             href={`${APP_URL}/register`}
             className="rounded-lg gradient-bg px-4 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity"
           >
-            Start Free Trial
+            {t('startFreeTrial')}
           </a>
           <a
             href={APP_URL}
@@ -79,7 +110,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg border border-primary-600 px-4 py-2 text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors"
           >
-            Open App
+            {t('openApp')}
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
@@ -89,7 +120,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50">
           <div className="fixed inset-0 bg-black/20" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="fixed inset-y-0 end-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
@@ -106,7 +137,7 @@ export default function Navbar() {
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="sr-only">Close menu</span>
+                <span className="sr-only">{t('closeMenu')}</span>
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
@@ -115,12 +146,12 @@ export default function Navbar() {
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
                     <Link
-                      key={item.name}
+                      key={item.key}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {item.name}
+                      {t(item.key)}
                     </Link>
                   ))}
                 </div>
@@ -129,13 +160,13 @@ export default function Navbar() {
                     href={`${APP_URL}/login`}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Log in
+                    {t('login')}
                   </a>
                   <a
                     href={`${APP_URL}/register`}
                     className="block rounded-lg gradient-bg px-3 py-2.5 text-base font-semibold text-white text-center"
                   >
-                    Start Free Trial
+                    {t('startFreeTrial')}
                   </a>
                   <a
                     href={APP_URL}
@@ -143,7 +174,7 @@ export default function Navbar() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 rounded-lg border border-primary-600 px-3 py-2.5 text-base font-semibold text-primary-600"
                   >
-                    Open App
+                    {t('openApp')}
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
