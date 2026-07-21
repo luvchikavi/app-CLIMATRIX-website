@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Nunito_Sans } from 'next/font/google';
+import { Assistant, Nunito_Sans } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
@@ -10,6 +10,13 @@ import '../globals.css';
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
+});
+
+// Nunito Sans has no Hebrew glyphs; Assistant fills them via the font stack,
+// so Latin text keeps the brand font on both locales.
+const assistant = Assistant({
+  subsets: ['hebrew'],
+  variable: '--font-hebrew',
 });
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -61,7 +68,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
     <html
       lang={locale}
       dir={locale === 'he' ? 'rtl' : 'ltr'}
-      className={`scroll-smooth ${nunitoSans.variable} font-sans`}
+      className={`scroll-smooth ${nunitoSans.variable} ${assistant.variable} font-sans`}
     >
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
