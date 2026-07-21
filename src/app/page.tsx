@@ -30,6 +30,7 @@ import {
   ArrowRight,
   Package,
   ShieldCheck,
+  FileBadge,
 } from 'lucide-react';
 
 // The live platform app (climatrix.co is the one brand domain)
@@ -122,6 +123,22 @@ const features: {
       'Model any product’s BOM and get a cradle-to-gate PCF per ISO 14067 — exported as PACT v3 JSON your customers can ingest.',
     icon: Package,
     color: 'from-primary-500 to-accent-400',
+    badge: 'Beta',
+  },
+  {
+    name: 'LCA-lite',
+    description:
+      'Screening-grade life-cycle assessment on your PCF models: 16 EF 3.1 impact categories across the EN 15804 modules (A1–D), with honest per-indicator data-coverage disclosure.',
+    icon: Leaf,
+    color: 'from-accent-500 to-secondary-400',
+    badge: 'Beta',
+  },
+  {
+    name: 'EPD Preparation',
+    description:
+      'ISO 14025 / EN 15804+A2 declaration preparation on a verified footprint — EN 15804 PDF plus ILCD+EPD digital dataset. Your program operator publishes it; we prepare it.',
+    icon: FileBadge,
+    color: 'from-secondary-500 to-accent-400',
     badge: 'Beta',
   },
   {

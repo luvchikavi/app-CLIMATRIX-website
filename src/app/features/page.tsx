@@ -25,10 +25,47 @@ import {
   ExternalLink,
   Package,
   ShieldCheck,
+  FileBadge,
 } from 'lucide-react';
 
 // The live platform app
 const APP_URL = 'https://app.climatrix.co';
+
+// The footprint chain — from company footprint to published product declaration
+const toolChain = [
+  {
+    id: 'ghg',
+    abbr: 'CCF',
+    name: 'Corporate Carbon Footprint',
+    status: 'Live',
+    blurb: 'Your full organizational GHG inventory — Scopes 1, 2 & 3.',
+    icon: BarChart3,
+  },
+  {
+    id: 'pcf',
+    abbr: 'PCF',
+    name: 'Product Carbon Footprint',
+    status: 'Beta',
+    blurb: 'Cradle-to-gate footprint per product, exchanged in PACT v3.',
+    icon: Package,
+  },
+  {
+    id: 'lca',
+    abbr: 'LCA',
+    name: 'LCA-lite',
+    status: 'Beta',
+    blurb: 'Screening-grade impacts beyond carbon — 16 EF 3.1 categories.',
+    icon: Leaf,
+  },
+  {
+    id: 'epd',
+    abbr: 'EPD',
+    name: 'EPD Generator',
+    status: 'Beta',
+    blurb: 'Verification-ready EN 15804+A2 declaration preparation.',
+    icon: FileBadge,
+  },
+];
 
 const mainFeatures = [
   {
@@ -39,32 +76,16 @@ const mainFeatures = [
     icon: BarChart3,
     chip: 'bg-primary-100 text-primary-600',
     features: [
-      'Scopes 1, 2 & 3 — all 15 Scope 3 categories with completeness screening',
+      'Scopes 1, 2 & 3 — all 15 Scope 3 categories with a screening matrix for completeness',
+      'Consolidation approach and reporting boundary declared up front',
       'ISO 14064-1 report plus VSME, ESRS E1 and CDP exports',
       'Base-year & recalculation policy disclosure',
+      'Hands off to the read-only Verifier Portal for external verification',
       'Per-row provenance and data-quality tiers behind every figure',
       'AI-powered data extraction from invoices',
       'Real-time dashboard and analytics',
     ],
     image: '/images/dashboard_emissions.png',
-  },
-  {
-    id: 'cbam',
-    name: 'CBAM Compliance',
-    tagline: 'EU Carbon Border Adjustment Made Easy',
-    description: 'Stay compliant with EU CBAM regulations with automated reporting and certificate management.',
-    icon: FileCheck,
-    chip: 'bg-secondary-100 text-secondary-600',
-    badge: 'Beta',
-    features: [
-      '20+ CBAM product categories supported',
-      'Quarterly reporting automation',
-      'Certificate cost calculation',
-      'XML report generation for EU submission',
-      'Installation and import tracking',
-      'Country-specific emission factors',
-    ],
-    image: '/images/dashboard_cbam.png',
   },
   {
     id: 'pcf',
@@ -79,9 +100,50 @@ const mainFeatures = [
       'BOM modeling grounded in the same audited factor library',
       'PACT v3 Data Exchange JSON your customers’ systems ingest',
       'Supplier PCF ingestion with primary-data-share tracking',
+      'Per-line derivation stories — how each number was calculated',
       'CBAM synergy — shared CN product codes',
     ],
     image: '/images/dashboard_pcf.png',
+  },
+  {
+    id: 'lca',
+    name: 'LCA-lite',
+    tagline: 'Screening-grade life-cycle impacts beyond carbon',
+    description: 'A screening-grade life-cycle assessment computed straight on your PCF models — the EF 3.1 impact method across the EN 15804 lifecycle, with honest disclosure of what the data actually covers.',
+    icon: Leaf,
+    chip: 'bg-accent-100 text-accent-600',
+    badge: 'Beta',
+    features: [
+      'EF 3.1 impact method — 16 impact categories beyond climate',
+      'Results matrix: every indicator × EN 15804 lifecycle modules (A1–D)',
+      'Built on your PCF models — no data re-entry',
+      'Curated free dataset library to fill impact data',
+      'Honest per-indicator data-coverage disclosure — you see exactly what each result rests on',
+      'Screening-grade by design — a fast, transparent first pass, not a critical-review LCA',
+    ],
+    image: null,
+    placeholderTitle: 'Live today (Beta)',
+    placeholder: 'Screenshot coming — LCA-lite is live in the app today, on the PCF module.',
+  },
+  {
+    id: 'epd',
+    name: 'EPD Generator',
+    tagline: 'Verification-ready EPDs — published by your program operator',
+    description: 'Turn a verified footprint into an ISO 14025 / EN 15804+A2 declaration package. We prepare the EPD end-to-end; your program operator reviews and publishes it — we do not issue EPDs ourselves.',
+    icon: FileBadge,
+    chip: 'bg-primary-100 text-primary-600',
+    badge: 'Beta',
+    features: [
+      'Pins a verified footprint snapshot — the declaration never drifts from its data',
+      'EN 15804 core + additional indicator results tables',
+      'EN 15804-structured PDF plus ILCD+EPD digital dataset (machine-readable EPD)',
+      'Third-party verification workflow through the token-gated verifier portal',
+      '5-year validity tracking',
+      'Program-operator registration tracking — publication stays with your operator',
+    ],
+    image: null,
+    placeholderTitle: 'In Beta',
+    placeholder: 'Being built right now — declaration preparation on top of your verified PCF + LCA results.',
   },
   {
     id: 'verifier',
@@ -102,23 +164,22 @@ const mainFeatures = [
     placeholder: 'Screenshot coming — the portal is live in the app today.',
   },
   {
-    id: 'lca',
-    name: 'LCA & EPD Management',
-    tagline: 'From product footprint to full environmental declaration',
-    description: 'LCA-lite screening on the EF 3.1 impact method, feeding EN 15804+A2 EPD preparation — the next modules on our roadmap.',
-    icon: Leaf,
-    chip: 'bg-accent-100 text-accent-600',
-    badge: 'On the roadmap',
+    id: 'cbam',
+    name: 'CBAM Compliance',
+    tagline: 'EU Carbon Border Adjustment Made Easy',
+    description: 'Stay compliant with EU CBAM regulations with automated reporting and certificate management.',
+    icon: FileCheck,
+    chip: 'bg-secondary-100 text-secondary-600',
+    badge: 'Beta',
     features: [
-      'LCA-lite screening built on the EF 3.1 impact method',
-      'Impact categories beyond climate (GWP, AP, EP, and more)',
-      'EN 15804+A2 EPD preparation for construction products',
-      'Builds on your PCF models — no data re-entry',
-      'Third-party verification support',
+      '20+ CBAM product categories supported',
+      'Quarterly reporting automation',
+      'Certificate cost calculation',
+      'XML report generation for EU submission',
+      'Installation and import tracking',
+      'Country-specific emission factors',
     ],
-    image: null,
-    placeholderTitle: 'In design',
-    placeholder: 'Ships with the LCA module — built on the same data you already collect.',
+    image: '/images/dashboard_cbam.png',
   },
   {
     id: 'scenarios',
@@ -185,6 +246,74 @@ export default function FeaturesPage() {
               Everything you need to track, report, and reduce your environmental
               footprint in one comprehensive platform.
             </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* The footprint chain — CCF → PCF → LCA → EPD */}
+      <section className="pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3"
+            >
+              One data spine, four tools:
+              <span className="block gradient-text">from company footprint to published product declaration</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-gray-600"
+            >
+              Each tool builds on the one before it — the corporate inventory feeds product
+              footprints, product footprints feed screening LCA, and a verified footprint
+              becomes an EPD your program operator publishes. No data re-entry between steps.
+            </motion.p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {toolChain.map((tool, index) => (
+              <motion.a
+                key={tool.id}
+                href={`#${tool.id}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="relative rounded-2xl border border-gray-200 bg-white p-6 hover:border-primary-200 hover:shadow-lg transition-all group"
+              >
+                {index < toolChain.length - 1 && (
+                  <ArrowRight className="hidden lg:block absolute top-1/2 -right-4 -translate-y-1/2 w-6 h-6 text-primary-300 z-10" />
+                )}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="inline-flex p-2.5 rounded-xl bg-primary-100">
+                    <tool.icon className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <span
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                      tool.status === 'Live'
+                        ? 'bg-accent-100 text-accent-700'
+                        : 'bg-amber-100 text-amber-700'
+                    }`}
+                  >
+                    {tool.status}
+                  </span>
+                </div>
+                <div className="text-xs font-semibold tracking-wide text-primary-600 mb-1">
+                  {tool.abbr}
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                  {tool.name}
+                </h3>
+                <p className="text-sm text-gray-600">{tool.blurb}</p>
+              </motion.a>
+            ))}
           </div>
         </div>
       </section>

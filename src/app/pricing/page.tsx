@@ -75,7 +75,11 @@ const faqs = [
   },
   {
     question: 'Which modules are included?',
-    answer: 'Every plan includes the full corporate carbon footprint (CCF). CBAM and product carbon footprints (PCF) ship in Beta on Professional. The verifier portal is included wherever report exports are. LCA and EPD are next on the roadmap and will ship as add-on modules.',
+    answer: 'Every plan includes the full corporate carbon footprint (CCF). CBAM ships in Beta on Professional, and the verifier portal is included wherever report exports are. The product-level tools — PCF, LCA-lite and EPD preparation — are add-on modules on top of Professional.',
+  },
+  {
+    question: 'How do the add-on modules (PCF, LCA-lite, EPD) work?',
+    answer: 'They sit on top of a Professional subscription and are priced by what you actually declare: PCF and LCA-lite per product, EPD preparation per declaration. All three are in Beta today. LCA-lite is screening-grade — a fast, transparent first pass, not a critical-review LCA — and for EPDs we prepare a verification-ready declaration package that your program operator reviews and publishes; we don\'t issue EPDs ourselves. Email avi@climatrix.co for a quote.',
   },
   {
     question: 'Can I switch plans later?',
@@ -324,6 +328,72 @@ export default function PricingPage() {
             <span className="font-semibold text-gray-700">Site packs (+5 sites) $490/yr</span> ·{' '}
             <span className="font-semibold text-gray-700">Extra seats $190/yr</span>.
           </p>
+
+          {/* Add-on modules — product-level tools on top of Professional */}
+          <div className="mt-12 rounded-2xl border-2 border-secondary-200 bg-secondary-50/40 p-8">
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center gap-3 mb-1">
+                <h3 className="text-2xl font-bold text-gray-900">Add-on modules</h3>
+                <span className="rounded-full bg-secondary-100 text-secondary-700 text-xs font-semibold px-3 py-1">
+                  On top of Professional
+                </span>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                The product-level tools — from product footprint to a publish-ready declaration —
+                are add-on modules on your Professional subscription, priced per product and per EPD.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {[
+                {
+                  name: 'Product Carbon Footprint (PCF)',
+                  badge: 'Beta',
+                  description:
+                    'ISO 14067 cradle-to-gate footprints with BOM modeling and PACT v3 exchange — priced per product.',
+                },
+                {
+                  name: 'LCA-lite',
+                  badge: 'Beta',
+                  description:
+                    'Screening-grade life-cycle assessment on your PCF models — 16 EF 3.1 impact categories across the EN 15804 modules. Priced per product.',
+                },
+                {
+                  name: 'EPD Preparation',
+                  badge: 'Beta',
+                  description:
+                    'Verification-ready ISO 14025 / EN 15804+A2 declaration preparation, published by your program operator — priced per EPD.',
+                },
+              ].map((mod) => (
+                <div
+                  key={mod.name}
+                  className="rounded-xl bg-white border border-secondary-100 p-6"
+                >
+                  <h4 className="font-bold text-gray-900 mb-2">
+                    {mod.name}
+                    <span className="ml-2 align-middle rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
+                      {mod.badge}
+                    </span>
+                  </h4>
+                  <p className="text-sm text-gray-600">{mod.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm text-gray-600 mb-4">
+                Pricing depends on how many products and declarations you need — tell us what
+                you make and we&apos;ll quote it straight.
+              </p>
+              <a
+                href="mailto:avi@climatrix.co?subject=Add-on%20modules%20(PCF%20%2F%20LCA%20%2F%20EPD)"
+                className="inline-flex items-center justify-center gap-2 rounded-xl gradient-bg px-6 py-3 font-semibold text-white transition-all hover:opacity-90"
+              >
+                Talk to us
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
