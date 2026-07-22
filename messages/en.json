@@ -59,7 +59,7 @@
         "features": [
           "1 site, 1 user",
           "Scope 1 & 2 tracking",
-          "Data Hub with guided setup",
+          "Measure hub with guided setup",
           "On-screen preview reports",
           "Free CBAM exemption checker"
         ]
@@ -136,7 +136,7 @@
     },
     "screenshots": {
       "0": {
-        "title": "The Data Hub",
+        "title": "Measure",
         "description": "One living map of your inventory — what’s relevant, what’s arrived, what’s still missing, and who to chase"
       },
       "1": {
@@ -162,7 +162,7 @@
     },
     "about": {
       "heading": "How <gradient>CLIMATRIX</gradient> works",
-      "p1": "The hard part of carbon accounting isn't the math — it's gathering messy data from finance, fleet, facilities and suppliers, and making it defensible. CLIMATRIX is built around a Data Hub that does exactly that.",
+      "p1": "The hard part of carbon accounting isn't the math — it's gathering messy data from finance, fleet, facilities and suppliers, and making it defensible. CLIMATRIX is built around its Measure hub, which does exactly that.",
       "p2": "Three steps: declare your reality, drop your files, review and report — with every number carrying its factor, formula and quality grade.",
       "brandSub": "Technology",
       "points": {
@@ -176,7 +176,7 @@
         },
         "2": {
           "title": "3 · Review, close gaps, report",
-          "description": "The Data Hub shows what arrived, its quality, and what is missing. Answer the few real questions, commit, and export a defensible inventory."
+          "description": "The Measure hub shows what arrived, its quality, and what is missing. Answer the few real questions, commit, and export a defensible inventory."
         },
         "3": {
           "title": "Built on the standards",
@@ -193,7 +193,7 @@
       "subheading": "From emissions tracking to compliance reporting, all tools in one platform.",
       "items": {
         "0": {
-          "name": "The Data Hub",
+          "name": "Measure",
           "description": "One living map of your inventory: declare which GHG categories are relevant, see what data arrived, what quality it has, and exactly what is still missing — with a chase list of who to ask."
         },
         "1": {
