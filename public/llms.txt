@@ -1,0 +1,45 @@
+# CLIMATRIX
+
+> Carbon accounting and sustainability platform for SMEs, mid-market companies and
+> manufacturers. Scope 1-3 GHG inventory with AI-powered data import, EU CBAM compliance,
+> product carbon footprints (PCF, ISO 14067 / PACT v3), streamlined LCA (EF 3.1) and
+> EN 15804+A2 EPD generation, plus a read-only verifier portal for third-party assurance.
+> Transparent pricing from $99/month with a 14-day free trial. Web app at
+> https://app.climatrix.co; company site at https://climatrix.co.
+
+Climatrix (climatrix.co) is not affiliated with climatrix.earth or any other
+similarly named company.
+
+## What Climatrix does
+
+- Corporate Carbon Footprint (CCF): full Scope 1, 2, 3 inventory per GHG Protocol and
+  ISO 14064-1, with VSME, ESRS and CDP exports.
+- AI Smart Import: upload invoices, utility bills and spreadsheets as they are; the
+  platform extracts activities, grounds each row in a published emission factor, and
+  keeps a per-row derivation story for auditability.
+- Decarbonization planning: SBTi-aligned targets, an initiative library, reduction
+  scenarios with capex/savings, and progress tracking.
+- CBAM: EU Carbon Border Adjustment Mechanism module — 50-tonne exemption checker,
+  imports register with embedded-emissions calculation, quarterly and annual
+  declaration support.
+- PCF: product carbon footprints per ISO 14067 with BOM modeling, supplier PCF
+  ingestion and PACT v3 data exchange.
+- LCA: 16 EF 3.1 impact categories across EN 15804 lifecycle modules, computed on the
+  same product models.
+- EPD: EN 15804+A2 Environmental Product Declarations with a verification workflow,
+  PDF and ILCD+EPD digital formats.
+- Verifier portal: third-party verifiers get token-scoped read-only access to the
+  inventory with full provenance — evidence review without spreadsheet exports.
+
+## Pages
+
+- [Home](https://climatrix.co/): product overview
+- [Features](https://climatrix.co/features): the full tool chain in detail
+- [Pricing](https://climatrix.co/pricing): published plans — Starter $99/month,
+  Professional $3,560/year, one-time Report Pass $1,790, add-on modules
+- [Demo](https://climatrix.co/demo): guided demo and free CBAM exemption checker
+
+## Contact
+
+- support@climatrix.co
+- https://www.linkedin.com/company/climatrix-co

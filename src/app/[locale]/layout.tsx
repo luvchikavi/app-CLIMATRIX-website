@@ -56,6 +56,43 @@ export async function generateMetadata({
   };
 }
 
+// Entity + product facts for search and AI assistants (schema.org JSON-LD).
+// Kept factual and stable — the sameAs list disambiguates "Climatrix" from
+// unrelated same-name entities (e.g. climatrix.earth is a different company).
+const STRUCTURED_DATA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://climatrix.co/#organization',
+      name: 'CLIMATRIX',
+      url: 'https://climatrix.co',
+      logo: 'https://climatrix.co/icon.png',
+      description:
+        'Climatrix is a carbon accounting and sustainability platform for SMEs and manufacturers: Scope 1-3 GHG inventory with AI data import, CBAM compliance, product carbon footprints (PCF), LCA and EPD generation, and a verifier portal.',
+      email: 'support@climatrix.co',
+      sameAs: ['https://www.linkedin.com/company/climatrix-co'],
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://climatrix.co/#software',
+      name: 'CLIMATRIX',
+      url: 'https://app.climatrix.co',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      publisher: { '@id': 'https://climatrix.co/#organization' },
+      description:
+        'Carbon accounting software: corporate carbon footprint (GHG Protocol / ISO 14064-1), AI Smart Import for invoices and spreadsheets, decarbonization planning with SBTi targets, EU CBAM module, PCF per ISO 14067 with PACT v3 exchange, LCA on the EF 3.1 method, and EN 15804+A2 EPD generation.',
+      offers: {
+        '@type': 'Offer',
+        price: '99',
+        priceCurrency: 'USD',
+        description: 'Starter plan from $99/month; 14-day free trial, no credit card required.',
+      },
+    },
+  ],
+};
+
 export default async function LocaleLayout({ children, params: { locale } }: Props) {
   if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
@@ -71,6 +108,10 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
       className={`scroll-smooth ${nunitoSans.variable} ${assistant.variable} font-sans`}
     >
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }}
+        />
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main className="min-h-screen pt-16">
